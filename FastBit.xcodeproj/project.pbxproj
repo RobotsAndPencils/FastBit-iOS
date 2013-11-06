@@ -1,0 +1,629 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4C232F1115E2F56D00D926F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C232F1015E2F56D00D926F4 /* Foundation.framework */; };
+		4C23307C15E3037C00D926F4 /* array_t.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23300215E3037C00D926F4 /* array_t.cpp */; };
+		4C23307D15E3037C00D926F4 /* bitvector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23300415E3037C00D926F4 /* bitvector.cpp */; };
+		4C23307E15E3037C00D926F4 /* bitvector64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23300615E3037C00D926F4 /* bitvector64.cpp */; };
+		4C23307F15E3037C00D926F4 /* blob.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23300815E3037C00D926F4 /* blob.cpp */; };
+		4C23308115E3037C00D926F4 /* bundle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23300C15E3037C00D926F4 /* bundle.cpp */; };
+		4C23308215E3037C00D926F4 /* capi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23300E15E3037C00D926F4 /* capi.cpp */; };
+		4C23308315E3037C00D926F4 /* category.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23301015E3037C00D926F4 /* category.cpp */; };
+		4C23308415E3037C00D926F4 /* column.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23301215E3037C00D926F4 /* column.cpp */; };
+		4C23308515E3037C00D926F4 /* colValues.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23301415E3037C00D926F4 /* colValues.cpp */; };
+		4C23308615E3037C00D926F4 /* countQuery.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23301715E3037C00D926F4 /* countQuery.cpp */; };
+		4C23308715E3037C00D926F4 /* dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23301915E3037C00D926F4 /* dictionary.cpp */; };
+		4C23308815E3037C00D926F4 /* fileManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23301C15E3037C00D926F4 /* fileManager.cpp */; };
+		4C23308915E3037C00D926F4 /* filter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23301E15E3037C00D926F4 /* filter.cpp */; };
+		4C23308A15E3037C00D926F4 /* fromClause.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23302015E3037C00D926F4 /* fromClause.cpp */; };
+		4C23308B15E3037C00D926F4 /* fromLexer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 4C23302215E3037C00D926F4 /* fromLexer.cc */; };
+		4C23308C15E3037C00D926F4 /* fromParser.cc in Sources */ = {isa = PBXBuildFile; fileRef = 4C23302415E3037C00D926F4 /* fromParser.cc */; };
+		4C23308D15E3037C00D926F4 /* ibin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23302715E3037C00D926F4 /* ibin.cpp */; };
+		4C23308E15E3037C00D926F4 /* icegale.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23302A15E3037C00D926F4 /* icegale.cpp */; };
+		4C23308F15E3037C00D926F4 /* icentre.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23302B15E3037C00D926F4 /* icentre.cpp */; };
+		4C23309015E3037C00D926F4 /* icmoins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23302C15E3037C00D926F4 /* icmoins.cpp */; };
+		4C23309115E3037C00D926F4 /* idbak.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23302D15E3037C00D926F4 /* idbak.cpp */; };
+		4C23309215E3037C00D926F4 /* idbak2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23302E15E3037C00D926F4 /* idbak2.cpp */; };
+		4C23309315E3037C00D926F4 /* idirekte.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23302F15E3037C00D926F4 /* idirekte.cpp */; };
+		4C23309415E3037C00D926F4 /* ifade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23303115E3037C00D926F4 /* ifade.cpp */; };
+		4C23309515E3037C00D926F4 /* ikeywords.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23303215E3037C00D926F4 /* ikeywords.cpp */; };
+		4C23309615E3037C00D926F4 /* imesa.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23303415E3037C00D926F4 /* imesa.cpp */; };
+		4C23309715E3037C00D926F4 /* index.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23303515E3037C00D926F4 /* index.cpp */; };
+		4C23309815E3037C00D926F4 /* irange.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23303715E3037C00D926F4 /* irange.cpp */; };
+		4C23309915E3037C00D926F4 /* irelic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23303815E3037C00D926F4 /* irelic.cpp */; };
+		4C23309A15E3037C00D926F4 /* iroster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23303A15E3037C00D926F4 /* iroster.cpp */; };
+		4C23309B15E3037C00D926F4 /* isapid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23303C15E3037C00D926F4 /* isapid.cpp */; };
+		4C23309C15E3037C00D926F4 /* isbiad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23303D15E3037C00D926F4 /* isbiad.cpp */; };
+		4C23309D15E3037C00D926F4 /* iskive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23303E15E3037C00D926F4 /* iskive.cpp */; };
+		4C23309E15E3037C00D926F4 /* islice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23303F15E3037C00D926F4 /* islice.cpp */; };
+		4C23309F15E3037C00D926F4 /* ixambit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23304015E3037C00D926F4 /* ixambit.cpp */; };
+		4C2330A015E3037C00D926F4 /* ixbylt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23304115E3037C00D926F4 /* ixbylt.cpp */; };
+		4C2330A115E3037C00D926F4 /* ixfuge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23304215E3037C00D926F4 /* ixfuge.cpp */; };
+		4C2330A215E3037C00D926F4 /* ixfuzz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23304315E3037C00D926F4 /* ixfuzz.cpp */; };
+		4C2330A315E3037C00D926F4 /* ixpack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23304415E3037C00D926F4 /* ixpack.cpp */; };
+		4C2330A415E3037C00D926F4 /* ixpale.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23304515E3037C00D926F4 /* ixpale.cpp */; };
+		4C2330A515E3037C00D926F4 /* ixzona.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23304615E3037C00D926F4 /* ixzona.cpp */; };
+		4C2330A615E3037C00D926F4 /* ixzone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23304715E3037C00D926F4 /* ixzone.cpp */; };
+		4C2330A715E3037C00D926F4 /* jnatural.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23304815E3037C00D926F4 /* jnatural.cpp */; };
+		4C2330A815E3037C00D926F4 /* jrange.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23304A15E3037C00D926F4 /* jrange.cpp */; };
+		4C2330A915E3037C00D926F4 /* mensa.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23304D15E3037C00D926F4 /* mensa.cpp */; };
+		4C2330AA15E3037C00D926F4 /* meshQuery.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23304F15E3037C00D926F4 /* meshQuery.cpp */; };
+		4C2330AB15E3037C00D926F4 /* part.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23305115E3037C00D926F4 /* part.cpp */; };
+		4C2330AC15E3037C00D926F4 /* parth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23305315E3037C00D926F4 /* parth.cpp */; };
+		4C2330AD15E3037C00D926F4 /* parth2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23305415E3037C00D926F4 /* parth2d.cpp */; };
+		4C2330AE15E3037C00D926F4 /* parth3d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23305515E3037C00D926F4 /* parth3d.cpp */; };
+		4C2330AF15E3037C00D926F4 /* parth3da.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23305615E3037C00D926F4 /* parth3da.cpp */; };
+		4C2330B015E3037C00D926F4 /* parth3db.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23305715E3037C00D926F4 /* parth3db.cpp */; };
+		4C2330B115E3037C00D926F4 /* parth3dw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23305815E3037C00D926F4 /* parth3dw.cpp */; };
+		4C2330B215E3037C00D926F4 /* parti.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23305915E3037C00D926F4 /* parti.cpp */; };
+		4C2330B315E3037C00D926F4 /* party.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23305A15E3037C00D926F4 /* party.cpp */; };
+		4C2330B415E3037C00D926F4 /* qExpr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23305C15E3037C00D926F4 /* qExpr.cpp */; };
+		4C2330B515E3037C00D926F4 /* quaere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23305E15E3037C00D926F4 /* quaere.cpp */; };
+		4C2330B615E3037C00D926F4 /* query.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23306015E3037C00D926F4 /* query.cpp */; };
+		4C2330B715E3037C00D926F4 /* resource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23306215E3037C00D926F4 /* resource.cpp */; };
+		4C2330B815E3037C00D926F4 /* rids.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23306415E3037C00D926F4 /* rids.cpp */; };
+		4C2330B915E3037C00D926F4 /* selectClause.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23306615E3037C00D926F4 /* selectClause.cpp */; };
+		4C2330BA15E3037C00D926F4 /* selectLexer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 4C23306815E3037C00D926F4 /* selectLexer.cc */; };
+		4C2330BB15E3037C00D926F4 /* selectParser.cc in Sources */ = {isa = PBXBuildFile; fileRef = 4C23306A15E3037C00D926F4 /* selectParser.cc */; };
+		4C2330BC15E3037C00D926F4 /* tafel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23306F15E3037C00D926F4 /* tafel.cpp */; };
+		4C2330BD15E3037C00D926F4 /* util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23307215E3037C00D926F4 /* util.cpp */; };
+		4C2330BE15E3037C00D926F4 /* utilidor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23307415E3037C00D926F4 /* utilidor.cpp */; };
+		4C2330BF15E3037C00D926F4 /* whereClause.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23307615E3037C00D926F4 /* whereClause.cpp */; };
+		4C2330C015E3037C00D926F4 /* whereLexer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 4C23307815E3037C00D926F4 /* whereLexer.cc */; };
+		4C2330C115E3037C00D926F4 /* whereParser.cc in Sources */ = {isa = PBXBuildFile; fileRef = 4C23307A15E3037C00D926F4 /* whereParser.cc */; };
+		4C23365715E529A800D926F4 /* bord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C23365615E529A800D926F4 /* bord.cpp */; };
+		4C552DFF15F512AA00BD3748 /* bordm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C552DFE15F512AA00BD3748 /* bordm.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4C232F0B15E2F56D00D926F4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4C232F0D15E2F56D00D926F4 /* libFastBit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFastBit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C232F1015E2F56D00D926F4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4C23300215E3037C00D926F4 /* array_t.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = array_t.cpp; path = FastBit/src/array_t.cpp; sourceTree = SOURCE_ROOT; };
+		4C23300315E3037C00D926F4 /* array_t.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = array_t.h; path = FastBit/src/array_t.h; sourceTree = SOURCE_ROOT; };
+		4C23300415E3037C00D926F4 /* bitvector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = bitvector.cpp; path = FastBit/src/bitvector.cpp; sourceTree = SOURCE_ROOT; };
+		4C23300515E3037C00D926F4 /* bitvector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bitvector.h; path = FastBit/src/bitvector.h; sourceTree = SOURCE_ROOT; };
+		4C23300615E3037C00D926F4 /* bitvector64.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = bitvector64.cpp; path = FastBit/src/bitvector64.cpp; sourceTree = SOURCE_ROOT; };
+		4C23300715E3037C00D926F4 /* bitvector64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bitvector64.h; path = FastBit/src/bitvector64.h; sourceTree = SOURCE_ROOT; };
+		4C23300815E3037C00D926F4 /* blob.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = blob.cpp; path = FastBit/src/blob.cpp; sourceTree = SOURCE_ROOT; };
+		4C23300915E3037C00D926F4 /* blob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = blob.h; path = FastBit/src/blob.h; sourceTree = SOURCE_ROOT; };
+		4C23300B15E3037C00D926F4 /* bord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bord.h; path = FastBit/src/bord.h; sourceTree = SOURCE_ROOT; };
+		4C23300C15E3037C00D926F4 /* bundle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = bundle.cpp; path = FastBit/src/bundle.cpp; sourceTree = SOURCE_ROOT; };
+		4C23300D15E3037C00D926F4 /* bundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bundle.h; path = FastBit/src/bundle.h; sourceTree = SOURCE_ROOT; };
+		4C23300E15E3037C00D926F4 /* capi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = capi.cpp; path = FastBit/src/capi.cpp; sourceTree = SOURCE_ROOT; };
+		4C23300F15E3037C00D926F4 /* capi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = capi.h; path = FastBit/src/capi.h; sourceTree = SOURCE_ROOT; };
+		4C23301015E3037C00D926F4 /* category.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = category.cpp; path = FastBit/src/category.cpp; sourceTree = SOURCE_ROOT; };
+		4C23301115E3037C00D926F4 /* category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = category.h; path = FastBit/src/category.h; sourceTree = SOURCE_ROOT; };
+		4C23301215E3037C00D926F4 /* column.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = column.cpp; path = FastBit/src/column.cpp; sourceTree = SOURCE_ROOT; };
+		4C23301315E3037C00D926F4 /* column.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = column.h; path = FastBit/src/column.h; sourceTree = SOURCE_ROOT; };
+		4C23301415E3037C00D926F4 /* colValues.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = colValues.cpp; path = FastBit/src/colValues.cpp; sourceTree = SOURCE_ROOT; };
+		4C23301515E3037C00D926F4 /* colValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = colValues.h; path = FastBit/src/colValues.h; sourceTree = SOURCE_ROOT; };
+		4C23301615E3037C00D926F4 /* const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = const.h; path = FastBit/src/const.h; sourceTree = SOURCE_ROOT; };
+		4C23301715E3037C00D926F4 /* countQuery.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = countQuery.cpp; path = FastBit/src/countQuery.cpp; sourceTree = SOURCE_ROOT; };
+		4C23301815E3037C00D926F4 /* countQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = countQuery.h; path = FastBit/src/countQuery.h; sourceTree = SOURCE_ROOT; };
+		4C23301915E3037C00D926F4 /* dictionary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = dictionary.cpp; path = FastBit/src/dictionary.cpp; sourceTree = SOURCE_ROOT; };
+		4C23301A15E3037C00D926F4 /* dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dictionary.h; path = FastBit/src/dictionary.h; sourceTree = SOURCE_ROOT; };
+		4C23301C15E3037C00D926F4 /* fileManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = fileManager.cpp; path = FastBit/src/fileManager.cpp; sourceTree = SOURCE_ROOT; };
+		4C23301D15E3037C00D926F4 /* fileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fileManager.h; path = FastBit/src/fileManager.h; sourceTree = SOURCE_ROOT; };
+		4C23301E15E3037C00D926F4 /* filter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = filter.cpp; path = FastBit/src/filter.cpp; sourceTree = SOURCE_ROOT; };
+		4C23301F15E3037C00D926F4 /* filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = filter.h; path = FastBit/src/filter.h; sourceTree = SOURCE_ROOT; };
+		4C23302015E3037C00D926F4 /* fromClause.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = fromClause.cpp; path = FastBit/src/fromClause.cpp; sourceTree = SOURCE_ROOT; };
+		4C23302115E3037C00D926F4 /* fromClause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fromClause.h; path = FastBit/src/fromClause.h; sourceTree = SOURCE_ROOT; };
+		4C23302215E3037C00D926F4 /* fromLexer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = fromLexer.cc; path = FastBit/src/fromLexer.cc; sourceTree = SOURCE_ROOT; };
+		4C23302315E3037C00D926F4 /* fromLexer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fromLexer.h; path = FastBit/src/fromLexer.h; sourceTree = SOURCE_ROOT; };
+		4C23302415E3037C00D926F4 /* fromParser.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = fromParser.cc; path = FastBit/src/fromParser.cc; sourceTree = SOURCE_ROOT; };
+		4C23302515E3037C00D926F4 /* fromParser.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = fromParser.hh; path = FastBit/src/fromParser.hh; sourceTree = SOURCE_ROOT; };
+		4C23302615E3037C00D926F4 /* horometer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = horometer.h; path = FastBit/src/horometer.h; sourceTree = SOURCE_ROOT; };
+		4C23302715E3037C00D926F4 /* ibin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ibin.cpp; path = FastBit/src/ibin.cpp; sourceTree = SOURCE_ROOT; };
+		4C23302815E3037C00D926F4 /* ibin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ibin.h; path = FastBit/src/ibin.h; sourceTree = SOURCE_ROOT; };
+		4C23302915E3037C00D926F4 /* ibis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ibis.h; path = FastBit/src/ibis.h; sourceTree = SOURCE_ROOT; };
+		4C23302A15E3037C00D926F4 /* icegale.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = icegale.cpp; path = FastBit/src/icegale.cpp; sourceTree = SOURCE_ROOT; };
+		4C23302B15E3037C00D926F4 /* icentre.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = icentre.cpp; path = FastBit/src/icentre.cpp; sourceTree = SOURCE_ROOT; };
+		4C23302C15E3037C00D926F4 /* icmoins.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = icmoins.cpp; path = FastBit/src/icmoins.cpp; sourceTree = SOURCE_ROOT; };
+		4C23302D15E3037C00D926F4 /* idbak.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = idbak.cpp; path = FastBit/src/idbak.cpp; sourceTree = SOURCE_ROOT; };
+		4C23302E15E3037C00D926F4 /* idbak2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = idbak2.cpp; path = FastBit/src/idbak2.cpp; sourceTree = SOURCE_ROOT; };
+		4C23302F15E3037C00D926F4 /* idirekte.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = idirekte.cpp; path = FastBit/src/idirekte.cpp; sourceTree = SOURCE_ROOT; };
+		4C23303015E3037C00D926F4 /* idirekte.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = idirekte.h; path = FastBit/src/idirekte.h; sourceTree = SOURCE_ROOT; };
+		4C23303115E3037C00D926F4 /* ifade.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ifade.cpp; path = FastBit/src/ifade.cpp; sourceTree = SOURCE_ROOT; };
+		4C23303215E3037C00D926F4 /* ikeywords.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ikeywords.cpp; path = FastBit/src/ikeywords.cpp; sourceTree = SOURCE_ROOT; };
+		4C23303315E3037C00D926F4 /* ikeywords.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ikeywords.h; path = FastBit/src/ikeywords.h; sourceTree = SOURCE_ROOT; };
+		4C23303415E3037C00D926F4 /* imesa.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = imesa.cpp; path = FastBit/src/imesa.cpp; sourceTree = SOURCE_ROOT; };
+		4C23303515E3037C00D926F4 /* index.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = index.cpp; path = FastBit/src/index.cpp; sourceTree = SOURCE_ROOT; };
+		4C23303615E3037C00D926F4 /* index.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = index.h; path = FastBit/src/index.h; sourceTree = SOURCE_ROOT; };
+		4C23303715E3037C00D926F4 /* irange.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = irange.cpp; path = FastBit/src/irange.cpp; sourceTree = SOURCE_ROOT; };
+		4C23303815E3037C00D926F4 /* irelic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = irelic.cpp; path = FastBit/src/irelic.cpp; sourceTree = SOURCE_ROOT; };
+		4C23303915E3037C00D926F4 /* irelic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = irelic.h; path = FastBit/src/irelic.h; sourceTree = SOURCE_ROOT; };
+		4C23303A15E3037C00D926F4 /* iroster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = iroster.cpp; path = FastBit/src/iroster.cpp; sourceTree = SOURCE_ROOT; };
+		4C23303B15E3037C00D926F4 /* iroster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iroster.h; path = FastBit/src/iroster.h; sourceTree = SOURCE_ROOT; };
+		4C23303C15E3037C00D926F4 /* isapid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = isapid.cpp; path = FastBit/src/isapid.cpp; sourceTree = SOURCE_ROOT; };
+		4C23303D15E3037C00D926F4 /* isbiad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = isbiad.cpp; path = FastBit/src/isbiad.cpp; sourceTree = SOURCE_ROOT; };
+		4C23303E15E3037C00D926F4 /* iskive.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = iskive.cpp; path = FastBit/src/iskive.cpp; sourceTree = SOURCE_ROOT; };
+		4C23303F15E3037C00D926F4 /* islice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = islice.cpp; path = FastBit/src/islice.cpp; sourceTree = SOURCE_ROOT; };
+		4C23304015E3037C00D926F4 /* ixambit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ixambit.cpp; path = FastBit/src/ixambit.cpp; sourceTree = SOURCE_ROOT; };
+		4C23304115E3037C00D926F4 /* ixbylt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ixbylt.cpp; path = FastBit/src/ixbylt.cpp; sourceTree = SOURCE_ROOT; };
+		4C23304215E3037C00D926F4 /* ixfuge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ixfuge.cpp; path = FastBit/src/ixfuge.cpp; sourceTree = SOURCE_ROOT; };
+		4C23304315E3037C00D926F4 /* ixfuzz.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ixfuzz.cpp; path = FastBit/src/ixfuzz.cpp; sourceTree = SOURCE_ROOT; };
+		4C23304415E3037C00D926F4 /* ixpack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ixpack.cpp; path = FastBit/src/ixpack.cpp; sourceTree = SOURCE_ROOT; };
+		4C23304515E3037C00D926F4 /* ixpale.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ixpale.cpp; path = FastBit/src/ixpale.cpp; sourceTree = SOURCE_ROOT; };
+		4C23304615E3037C00D926F4 /* ixzona.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ixzona.cpp; path = FastBit/src/ixzona.cpp; sourceTree = SOURCE_ROOT; };
+		4C23304715E3037C00D926F4 /* ixzone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ixzone.cpp; path = FastBit/src/ixzone.cpp; sourceTree = SOURCE_ROOT; };
+		4C23304815E3037C00D926F4 /* jnatural.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = jnatural.cpp; path = FastBit/src/jnatural.cpp; sourceTree = SOURCE_ROOT; };
+		4C23304915E3037C00D926F4 /* jnatural.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jnatural.h; path = FastBit/src/jnatural.h; sourceTree = SOURCE_ROOT; };
+		4C23304A15E3037C00D926F4 /* jrange.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = jrange.cpp; path = FastBit/src/jrange.cpp; sourceTree = SOURCE_ROOT; };
+		4C23304B15E3037C00D926F4 /* jrange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jrange.h; path = FastBit/src/jrange.h; sourceTree = SOURCE_ROOT; };
+		4C23304C15E3037C00D926F4 /* location.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = location.hh; path = FastBit/src/location.hh; sourceTree = SOURCE_ROOT; };
+		4C23304D15E3037C00D926F4 /* mensa.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = mensa.cpp; path = FastBit/src/mensa.cpp; sourceTree = SOURCE_ROOT; };
+		4C23304E15E3037C00D926F4 /* mensa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mensa.h; path = FastBit/src/mensa.h; sourceTree = SOURCE_ROOT; };
+		4C23304F15E3037C00D926F4 /* meshQuery.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = meshQuery.cpp; path = FastBit/src/meshQuery.cpp; sourceTree = SOURCE_ROOT; };
+		4C23305015E3037C00D926F4 /* meshQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = meshQuery.h; path = FastBit/src/meshQuery.h; sourceTree = SOURCE_ROOT; };
+		4C23305115E3037C00D926F4 /* part.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = part.cpp; path = FastBit/src/part.cpp; sourceTree = SOURCE_ROOT; };
+		4C23305215E3037C00D926F4 /* part.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = part.h; path = FastBit/src/part.h; sourceTree = SOURCE_ROOT; };
+		4C23305315E3037C00D926F4 /* parth.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = parth.cpp; path = FastBit/src/parth.cpp; sourceTree = SOURCE_ROOT; };
+		4C23305415E3037C00D926F4 /* parth2d.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = parth2d.cpp; path = FastBit/src/parth2d.cpp; sourceTree = SOURCE_ROOT; };
+		4C23305515E3037C00D926F4 /* parth3d.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = parth3d.cpp; path = FastBit/src/parth3d.cpp; sourceTree = SOURCE_ROOT; };
+		4C23305615E3037C00D926F4 /* parth3da.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = parth3da.cpp; path = FastBit/src/parth3da.cpp; sourceTree = SOURCE_ROOT; };
+		4C23305715E3037C00D926F4 /* parth3db.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = parth3db.cpp; path = FastBit/src/parth3db.cpp; sourceTree = SOURCE_ROOT; };
+		4C23305815E3037C00D926F4 /* parth3dw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = parth3dw.cpp; path = FastBit/src/parth3dw.cpp; sourceTree = SOURCE_ROOT; };
+		4C23305915E3037C00D926F4 /* parti.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = parti.cpp; path = FastBit/src/parti.cpp; sourceTree = SOURCE_ROOT; };
+		4C23305A15E3037C00D926F4 /* party.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = party.cpp; path = FastBit/src/party.cpp; sourceTree = SOURCE_ROOT; };
+		4C23305B15E3037C00D926F4 /* position.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = position.hh; path = FastBit/src/position.hh; sourceTree = SOURCE_ROOT; };
+		4C23305C15E3037C00D926F4 /* qExpr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = qExpr.cpp; path = FastBit/src/qExpr.cpp; sourceTree = SOURCE_ROOT; };
+		4C23305D15E3037C00D926F4 /* qExpr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = qExpr.h; path = FastBit/src/qExpr.h; sourceTree = SOURCE_ROOT; };
+		4C23305E15E3037C00D926F4 /* quaere.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = quaere.cpp; path = FastBit/src/quaere.cpp; sourceTree = SOURCE_ROOT; };
+		4C23305F15E3037C00D926F4 /* quaere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = quaere.h; path = FastBit/src/quaere.h; sourceTree = SOURCE_ROOT; };
+		4C23306015E3037C00D926F4 /* query.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = query.cpp; path = FastBit/src/query.cpp; sourceTree = SOURCE_ROOT; };
+		4C23306115E3037C00D926F4 /* query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = query.h; path = FastBit/src/query.h; sourceTree = SOURCE_ROOT; };
+		4C23306215E3037C00D926F4 /* resource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = resource.cpp; path = FastBit/src/resource.cpp; sourceTree = SOURCE_ROOT; };
+		4C23306315E3037C00D926F4 /* resource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = resource.h; path = FastBit/src/resource.h; sourceTree = SOURCE_ROOT; };
+		4C23306415E3037C00D926F4 /* rids.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = rids.cpp; path = FastBit/src/rids.cpp; sourceTree = SOURCE_ROOT; };
+		4C23306515E3037C00D926F4 /* rids.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rids.h; path = FastBit/src/rids.h; sourceTree = SOURCE_ROOT; };
+		4C23306615E3037C00D926F4 /* selectClause.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = selectClause.cpp; path = FastBit/src/selectClause.cpp; sourceTree = SOURCE_ROOT; };
+		4C23306715E3037C00D926F4 /* selectClause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = selectClause.h; path = FastBit/src/selectClause.h; sourceTree = SOURCE_ROOT; };
+		4C23306815E3037C00D926F4 /* selectLexer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = selectLexer.cc; path = FastBit/src/selectLexer.cc; sourceTree = SOURCE_ROOT; };
+		4C23306915E3037C00D926F4 /* selectLexer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = selectLexer.h; path = FastBit/src/selectLexer.h; sourceTree = SOURCE_ROOT; };
+		4C23306A15E3037C00D926F4 /* selectParser.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = selectParser.cc; path = FastBit/src/selectParser.cc; sourceTree = SOURCE_ROOT; };
+		4C23306B15E3037C00D926F4 /* selectParser.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = selectParser.hh; path = FastBit/src/selectParser.hh; sourceTree = SOURCE_ROOT; };
+		4C23306C15E3037C00D926F4 /* stack.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = stack.hh; path = FastBit/src/stack.hh; sourceTree = SOURCE_ROOT; };
+		4C23306D15E3037C00D926F4 /* tab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tab.h; path = FastBit/src/tab.h; sourceTree = SOURCE_ROOT; };
+		4C23306E15E3037C00D926F4 /* table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = table.h; path = FastBit/src/table.h; sourceTree = SOURCE_ROOT; };
+		4C23306F15E3037C00D926F4 /* tafel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tafel.cpp; path = FastBit/src/tafel.cpp; sourceTree = SOURCE_ROOT; };
+		4C23307015E3037C00D926F4 /* tafel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tafel.h; path = FastBit/src/tafel.h; sourceTree = SOURCE_ROOT; };
+		4C23307115E3037C00D926F4 /* twister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = twister.h; path = FastBit/src/twister.h; sourceTree = SOURCE_ROOT; };
+		4C23307215E3037C00D926F4 /* util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = util.cpp; path = FastBit/src/util.cpp; sourceTree = SOURCE_ROOT; };
+		4C23307315E3037C00D926F4 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = util.h; path = FastBit/src/util.h; sourceTree = SOURCE_ROOT; };
+		4C23307415E3037C00D926F4 /* utilidor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = utilidor.cpp; path = FastBit/src/utilidor.cpp; sourceTree = SOURCE_ROOT; };
+		4C23307515E3037C00D926F4 /* utilidor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = utilidor.h; path = FastBit/src/utilidor.h; sourceTree = SOURCE_ROOT; };
+		4C23307615E3037C00D926F4 /* whereClause.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = whereClause.cpp; path = FastBit/src/whereClause.cpp; sourceTree = SOURCE_ROOT; };
+		4C23307715E3037C00D926F4 /* whereClause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = whereClause.h; path = FastBit/src/whereClause.h; sourceTree = SOURCE_ROOT; };
+		4C23307815E3037C00D926F4 /* whereLexer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = whereLexer.cc; path = FastBit/src/whereLexer.cc; sourceTree = SOURCE_ROOT; };
+		4C23307915E3037C00D926F4 /* whereLexer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = whereLexer.h; path = FastBit/src/whereLexer.h; sourceTree = SOURCE_ROOT; };
+		4C23307A15E3037C00D926F4 /* whereParser.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = whereParser.cc; path = FastBit/src/whereParser.cc; sourceTree = SOURCE_ROOT; };
+		4C23307B15E3037C00D926F4 /* whereParser.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = whereParser.hh; path = FastBit/src/whereParser.hh; sourceTree = SOURCE_ROOT; };
+		4C23365615E529A800D926F4 /* bord.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = bord.cpp; path = FastBit/src/bord.cpp; sourceTree = SOURCE_ROOT; };
+		4C552DFE15F512AA00BD3748 /* bordm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = bordm.cpp; path = FastBit/src/bordm.cpp; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4C232F0A15E2F56D00D926F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C232F1115E2F56D00D926F4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4C232F0215E2F56D00D926F4 = {
+			isa = PBXGroup;
+			children = (
+				4C232F2415E3017300D926F4 /* src */,
+				4C232F0F15E2F56D00D926F4 /* Frameworks */,
+				4C232F0E15E2F56D00D926F4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4C232F0E15E2F56D00D926F4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4C232F0D15E2F56D00D926F4 /* libFastBit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4C232F0F15E2F56D00D926F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C232F1015E2F56D00D926F4 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4C232F2415E3017300D926F4 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				4C23300215E3037C00D926F4 /* array_t.cpp */,
+				4C23300315E3037C00D926F4 /* array_t.h */,
+				4C23300415E3037C00D926F4 /* bitvector.cpp */,
+				4C23300515E3037C00D926F4 /* bitvector.h */,
+				4C23300615E3037C00D926F4 /* bitvector64.cpp */,
+				4C23300715E3037C00D926F4 /* bitvector64.h */,
+				4C23300815E3037C00D926F4 /* blob.cpp */,
+				4C23300915E3037C00D926F4 /* blob.h */,
+				4C23365615E529A800D926F4 /* bord.cpp */,
+				4C552DFE15F512AA00BD3748 /* bordm.cpp */,
+				4C23300B15E3037C00D926F4 /* bord.h */,
+				4C23300C15E3037C00D926F4 /* bundle.cpp */,
+				4C23300D15E3037C00D926F4 /* bundle.h */,
+				4C23300E15E3037C00D926F4 /* capi.cpp */,
+				4C23300F15E3037C00D926F4 /* capi.h */,
+				4C23301015E3037C00D926F4 /* category.cpp */,
+				4C23301115E3037C00D926F4 /* category.h */,
+				4C23301215E3037C00D926F4 /* column.cpp */,
+				4C23301315E3037C00D926F4 /* column.h */,
+				4C23301415E3037C00D926F4 /* colValues.cpp */,
+				4C23301515E3037C00D926F4 /* colValues.h */,
+				4C23301615E3037C00D926F4 /* const.h */,
+				4C23301715E3037C00D926F4 /* countQuery.cpp */,
+				4C23301815E3037C00D926F4 /* countQuery.h */,
+				4C23301915E3037C00D926F4 /* dictionary.cpp */,
+				4C23301A15E3037C00D926F4 /* dictionary.h */,
+				4C23301C15E3037C00D926F4 /* fileManager.cpp */,
+				4C23301D15E3037C00D926F4 /* fileManager.h */,
+				4C23301E15E3037C00D926F4 /* filter.cpp */,
+				4C23301F15E3037C00D926F4 /* filter.h */,
+				4C23302015E3037C00D926F4 /* fromClause.cpp */,
+				4C23302115E3037C00D926F4 /* fromClause.h */,
+				4C23302215E3037C00D926F4 /* fromLexer.cc */,
+				4C23302315E3037C00D926F4 /* fromLexer.h */,
+				4C23302415E3037C00D926F4 /* fromParser.cc */,
+				4C23302515E3037C00D926F4 /* fromParser.hh */,
+				4C23302615E3037C00D926F4 /* horometer.h */,
+				4C23302715E3037C00D926F4 /* ibin.cpp */,
+				4C23302815E3037C00D926F4 /* ibin.h */,
+				4C23302915E3037C00D926F4 /* ibis.h */,
+				4C23302A15E3037C00D926F4 /* icegale.cpp */,
+				4C23302B15E3037C00D926F4 /* icentre.cpp */,
+				4C23302C15E3037C00D926F4 /* icmoins.cpp */,
+				4C23302D15E3037C00D926F4 /* idbak.cpp */,
+				4C23302E15E3037C00D926F4 /* idbak2.cpp */,
+				4C23302F15E3037C00D926F4 /* idirekte.cpp */,
+				4C23303015E3037C00D926F4 /* idirekte.h */,
+				4C23303115E3037C00D926F4 /* ifade.cpp */,
+				4C23303215E3037C00D926F4 /* ikeywords.cpp */,
+				4C23303315E3037C00D926F4 /* ikeywords.h */,
+				4C23303415E3037C00D926F4 /* imesa.cpp */,
+				4C23303515E3037C00D926F4 /* index.cpp */,
+				4C23303615E3037C00D926F4 /* index.h */,
+				4C23303715E3037C00D926F4 /* irange.cpp */,
+				4C23303815E3037C00D926F4 /* irelic.cpp */,
+				4C23303915E3037C00D926F4 /* irelic.h */,
+				4C23303A15E3037C00D926F4 /* iroster.cpp */,
+				4C23303B15E3037C00D926F4 /* iroster.h */,
+				4C23303C15E3037C00D926F4 /* isapid.cpp */,
+				4C23303D15E3037C00D926F4 /* isbiad.cpp */,
+				4C23303E15E3037C00D926F4 /* iskive.cpp */,
+				4C23303F15E3037C00D926F4 /* islice.cpp */,
+				4C23304015E3037C00D926F4 /* ixambit.cpp */,
+				4C23304115E3037C00D926F4 /* ixbylt.cpp */,
+				4C23304215E3037C00D926F4 /* ixfuge.cpp */,
+				4C23304315E3037C00D926F4 /* ixfuzz.cpp */,
+				4C23304415E3037C00D926F4 /* ixpack.cpp */,
+				4C23304515E3037C00D926F4 /* ixpale.cpp */,
+				4C23304615E3037C00D926F4 /* ixzona.cpp */,
+				4C23304715E3037C00D926F4 /* ixzone.cpp */,
+				4C23304815E3037C00D926F4 /* jnatural.cpp */,
+				4C23304915E3037C00D926F4 /* jnatural.h */,
+				4C23304A15E3037C00D926F4 /* jrange.cpp */,
+				4C23304B15E3037C00D926F4 /* jrange.h */,
+				4C23304C15E3037C00D926F4 /* location.hh */,
+				4C23304D15E3037C00D926F4 /* mensa.cpp */,
+				4C23304E15E3037C00D926F4 /* mensa.h */,
+				4C23304F15E3037C00D926F4 /* meshQuery.cpp */,
+				4C23305015E3037C00D926F4 /* meshQuery.h */,
+				4C23305115E3037C00D926F4 /* part.cpp */,
+				4C23305215E3037C00D926F4 /* part.h */,
+				4C23305315E3037C00D926F4 /* parth.cpp */,
+				4C23305415E3037C00D926F4 /* parth2d.cpp */,
+				4C23305515E3037C00D926F4 /* parth3d.cpp */,
+				4C23305615E3037C00D926F4 /* parth3da.cpp */,
+				4C23305715E3037C00D926F4 /* parth3db.cpp */,
+				4C23305815E3037C00D926F4 /* parth3dw.cpp */,
+				4C23305915E3037C00D926F4 /* parti.cpp */,
+				4C23305A15E3037C00D926F4 /* party.cpp */,
+				4C23305B15E3037C00D926F4 /* position.hh */,
+				4C23305C15E3037C00D926F4 /* qExpr.cpp */,
+				4C23305D15E3037C00D926F4 /* qExpr.h */,
+				4C23305E15E3037C00D926F4 /* quaere.cpp */,
+				4C23305F15E3037C00D926F4 /* quaere.h */,
+				4C23306015E3037C00D926F4 /* query.cpp */,
+				4C23306115E3037C00D926F4 /* query.h */,
+				4C23306215E3037C00D926F4 /* resource.cpp */,
+				4C23306315E3037C00D926F4 /* resource.h */,
+				4C23306415E3037C00D926F4 /* rids.cpp */,
+				4C23306515E3037C00D926F4 /* rids.h */,
+				4C23306615E3037C00D926F4 /* selectClause.cpp */,
+				4C23306715E3037C00D926F4 /* selectClause.h */,
+				4C23306815E3037C00D926F4 /* selectLexer.cc */,
+				4C23306915E3037C00D926F4 /* selectLexer.h */,
+				4C23306A15E3037C00D926F4 /* selectParser.cc */,
+				4C23306B15E3037C00D926F4 /* selectParser.hh */,
+				4C23306C15E3037C00D926F4 /* stack.hh */,
+				4C23306D15E3037C00D926F4 /* tab.h */,
+				4C23306E15E3037C00D926F4 /* table.h */,
+				4C23306F15E3037C00D926F4 /* tafel.cpp */,
+				4C23307015E3037C00D926F4 /* tafel.h */,
+				4C23307115E3037C00D926F4 /* twister.h */,
+				4C23307215E3037C00D926F4 /* util.cpp */,
+				4C23307315E3037C00D926F4 /* util.h */,
+				4C23307415E3037C00D926F4 /* utilidor.cpp */,
+				4C23307515E3037C00D926F4 /* utilidor.h */,
+				4C23307615E3037C00D926F4 /* whereClause.cpp */,
+				4C23307715E3037C00D926F4 /* whereClause.h */,
+				4C23307815E3037C00D926F4 /* whereLexer.cc */,
+				4C23307915E3037C00D926F4 /* whereLexer.h */,
+				4C23307A15E3037C00D926F4 /* whereParser.cc */,
+				4C23307B15E3037C00D926F4 /* whereParser.hh */,
+			);
+			name = src;
+			path = ../src;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4C232F0C15E2F56D00D926F4 /* FastBit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C232F1B15E2F56D00D926F4 /* Build configuration list for PBXNativeTarget "FastBit" */;
+			buildPhases = (
+				4C3C7955182AEAF5002528FB /* ShellScript */,
+				4C232F0915E2F56D00D926F4 /* Sources */,
+				4C232F0A15E2F56D00D926F4 /* Frameworks */,
+				4C232F0B15E2F56D00D926F4 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FastBit;
+			productName = FastBit;
+			productReference = 4C232F0D15E2F56D00D926F4 /* libFastBit.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4C232F0415E2F56D00D926F4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Robots and Pencils";
+			};
+			buildConfigurationList = 4C232F0715E2F56D00D926F4 /* Build configuration list for PBXProject "FastBit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4C232F0215E2F56D00D926F4;
+			productRefGroup = 4C232F0E15E2F56D00D926F4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4C232F0C15E2F56D00D926F4 /* FastBit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4C3C7955182AEAF5002528FB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\ncd FastBit\n\n# creates the fastbit-config.h file\n./configure\n\n# regenerate lexers to fix compilation errors\nflex -o src/fromLexer.cc src/fromLexer.ll\nflex -o src/selectLexer.cc src/selectLexer.ll\nflex -o src/whereLexer.cc src/whereLexer.ll\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4C232F0915E2F56D00D926F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C23307C15E3037C00D926F4 /* array_t.cpp in Sources */,
+				4C23307D15E3037C00D926F4 /* bitvector.cpp in Sources */,
+				4C23307E15E3037C00D926F4 /* bitvector64.cpp in Sources */,
+				4C23307F15E3037C00D926F4 /* blob.cpp in Sources */,
+				4C23308115E3037C00D926F4 /* bundle.cpp in Sources */,
+				4C23308215E3037C00D926F4 /* capi.cpp in Sources */,
+				4C23308315E3037C00D926F4 /* category.cpp in Sources */,
+				4C23308415E3037C00D926F4 /* column.cpp in Sources */,
+				4C23308515E3037C00D926F4 /* colValues.cpp in Sources */,
+				4C23308615E3037C00D926F4 /* countQuery.cpp in Sources */,
+				4C23308715E3037C00D926F4 /* dictionary.cpp in Sources */,
+				4C23308815E3037C00D926F4 /* fileManager.cpp in Sources */,
+				4C23308915E3037C00D926F4 /* filter.cpp in Sources */,
+				4C23308A15E3037C00D926F4 /* fromClause.cpp in Sources */,
+				4C23308B15E3037C00D926F4 /* fromLexer.cc in Sources */,
+				4C23308C15E3037C00D926F4 /* fromParser.cc in Sources */,
+				4C23308D15E3037C00D926F4 /* ibin.cpp in Sources */,
+				4C23308E15E3037C00D926F4 /* icegale.cpp in Sources */,
+				4C23308F15E3037C00D926F4 /* icentre.cpp in Sources */,
+				4C23309015E3037C00D926F4 /* icmoins.cpp in Sources */,
+				4C23309115E3037C00D926F4 /* idbak.cpp in Sources */,
+				4C23309215E3037C00D926F4 /* idbak2.cpp in Sources */,
+				4C23309315E3037C00D926F4 /* idirekte.cpp in Sources */,
+				4C23309415E3037C00D926F4 /* ifade.cpp in Sources */,
+				4C23309515E3037C00D926F4 /* ikeywords.cpp in Sources */,
+				4C23309615E3037C00D926F4 /* imesa.cpp in Sources */,
+				4C23309715E3037C00D926F4 /* index.cpp in Sources */,
+				4C23309815E3037C00D926F4 /* irange.cpp in Sources */,
+				4C23309915E3037C00D926F4 /* irelic.cpp in Sources */,
+				4C23309A15E3037C00D926F4 /* iroster.cpp in Sources */,
+				4C23309B15E3037C00D926F4 /* isapid.cpp in Sources */,
+				4C23309C15E3037C00D926F4 /* isbiad.cpp in Sources */,
+				4C23309D15E3037C00D926F4 /* iskive.cpp in Sources */,
+				4C23309E15E3037C00D926F4 /* islice.cpp in Sources */,
+				4C23309F15E3037C00D926F4 /* ixambit.cpp in Sources */,
+				4C2330A015E3037C00D926F4 /* ixbylt.cpp in Sources */,
+				4C2330A115E3037C00D926F4 /* ixfuge.cpp in Sources */,
+				4C2330A215E3037C00D926F4 /* ixfuzz.cpp in Sources */,
+				4C2330A315E3037C00D926F4 /* ixpack.cpp in Sources */,
+				4C2330A415E3037C00D926F4 /* ixpale.cpp in Sources */,
+				4C2330A515E3037C00D926F4 /* ixzona.cpp in Sources */,
+				4C2330A615E3037C00D926F4 /* ixzone.cpp in Sources */,
+				4C2330A715E3037C00D926F4 /* jnatural.cpp in Sources */,
+				4C2330A815E3037C00D926F4 /* jrange.cpp in Sources */,
+				4C2330A915E3037C00D926F4 /* mensa.cpp in Sources */,
+				4C2330AA15E3037C00D926F4 /* meshQuery.cpp in Sources */,
+				4C2330AB15E3037C00D926F4 /* part.cpp in Sources */,
+				4C2330AC15E3037C00D926F4 /* parth.cpp in Sources */,
+				4C2330AD15E3037C00D926F4 /* parth2d.cpp in Sources */,
+				4C2330AE15E3037C00D926F4 /* parth3d.cpp in Sources */,
+				4C2330AF15E3037C00D926F4 /* parth3da.cpp in Sources */,
+				4C2330B015E3037C00D926F4 /* parth3db.cpp in Sources */,
+				4C2330B115E3037C00D926F4 /* parth3dw.cpp in Sources */,
+				4C2330B215E3037C00D926F4 /* parti.cpp in Sources */,
+				4C2330B315E3037C00D926F4 /* party.cpp in Sources */,
+				4C2330B415E3037C00D926F4 /* qExpr.cpp in Sources */,
+				4C2330B515E3037C00D926F4 /* quaere.cpp in Sources */,
+				4C2330B615E3037C00D926F4 /* query.cpp in Sources */,
+				4C2330B715E3037C00D926F4 /* resource.cpp in Sources */,
+				4C2330B815E3037C00D926F4 /* rids.cpp in Sources */,
+				4C2330B915E3037C00D926F4 /* selectClause.cpp in Sources */,
+				4C2330BA15E3037C00D926F4 /* selectLexer.cc in Sources */,
+				4C2330BB15E3037C00D926F4 /* selectParser.cc in Sources */,
+				4C2330BC15E3037C00D926F4 /* tafel.cpp in Sources */,
+				4C2330BD15E3037C00D926F4 /* util.cpp in Sources */,
+				4C2330BE15E3037C00D926F4 /* utilidor.cpp in Sources */,
+				4C2330BF15E3037C00D926F4 /* whereClause.cpp in Sources */,
+				4C2330C015E3037C00D926F4 /* whereLexer.cc in Sources */,
+				4C2330C115E3037C00D926F4 /* whereParser.cc in Sources */,
+				4C23365715E529A800D926F4 /* bord.cpp in Sources */,
+				4C552DFF15F512AA00BD3748 /* bordm.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4C232F1915E2F56D00D926F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		4C232F1A15E2F56D00D926F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4C232F1C15E2F56D00D926F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/FastBit.dst;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		4C232F1D15E2F56D00D926F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/FastBit.dst;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4C232F0715E2F56D00D926F4 /* Build configuration list for PBXProject "FastBit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C232F1915E2F56D00D926F4 /* Debug */,
+				4C232F1A15E2F56D00D926F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4C232F1B15E2F56D00D926F4 /* Build configuration list for PBXNativeTarget "FastBit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C232F1C15E2F56D00D926F4 /* Debug */,
+				4C232F1D15E2F56D00D926F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4C232F0415E2F56D00D926F4 /* Project object */;
+}
