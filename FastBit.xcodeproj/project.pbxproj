@@ -394,7 +394,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C232F1B15E2F56D00D926F4 /* Build configuration list for PBXNativeTarget "FastBit" */;
 			buildPhases = (
-				4C3C7955182AEAF5002528FB /* ShellScript */,
 				4C232F0915E2F56D00D926F4 /* Sources */,
 				4C232F0A15E2F56D00D926F4 /* Frameworks */,
 				4C232F0B15E2F56D00D926F4 /* CopyFiles */,
@@ -433,22 +432,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		4C3C7955182AEAF5002528FB /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\ncd FastBit\n\n# creates the fastbit-config.h file\n./configure\n\n# regenerate lexers to fix compilation errors\nflex -o src/fromLexer.cc src/fromLexer.ll\nflex -o src/selectLexer.cc src/selectLexer.ll\nflex -o src/whereLexer.cc src/whereLexer.ll\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4C232F0915E2F56D00D926F4 /* Sources */ = {
