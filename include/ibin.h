@@ -36,10 +36,7 @@ public:
     bin(const ibis::column* c, const char* f, const std::vector<double>& bd);
 
     virtual void print(std::ostream& out) const;
-    virtual int write(ibis::array_t<double> &,
-                      ibis::array_t<int64_t> &,
-                      ibis::array_t<uint32_t> &) const;
-    virtual int write(const char* dt) const;
+    virtual int write(const char* dt) const; // write to the named file
     virtual int read(const char* idxfile);
     virtual int read(ibis::fileManager::storage* st);
     virtual long append(const char* dt, const char* df, uint32_t nnew);
@@ -175,9 +172,9 @@ public:
     struct granule {
 	double minm, maxm; // min and max of values less than the target
 	double minp, maxp; // min and max of values greater than the target
-	ibis::bitvector* loce; ///!< Values equal to the target.
-	ibis::bitvector* locm; ///!< Values less than the target.
-	ibis::bitvector* locp; ///!< Values greater than the target.
+	ibis::bitvector* loce; ///< Values equal to the target.
+	ibis::bitvector* locm; ///< Values less than the target.
+	ibis::bitvector* locp; ///< Values greater than the target.
 
 	/// Constructor.  User has to explicitly allocated the bitvectors.
 	granule() : minm(DBL_MAX), maxm(-DBL_MAX), minp(DBL_MAX),
@@ -263,10 +260,10 @@ public:
 protected:
     // member variables shared by all derived classes -- the derived classes
     // are allowed to interpret the actual content differently.
-    uint32_t nobs;		///!< Number of bitvectors.
-    array_t<double> bounds;	///!< The nominal boundaries.
-    array_t<double> maxval;	///!< The maximal values in each bin.
-    array_t<double> minval;	///!< The minimal values in each bin.
+    uint32_t nobs;		///< Number of bitvectors.
+    array_t<double> bounds;	///< The nominal boundaries.
+    array_t<double> maxval;	///< The maximal values in each bin.
+    array_t<double> minval;	///< The minimal values in each bin.
 
     /// A constructor to accommodate multicomponent encodings.
     bin(const ibis::column* c, const uint32_t nbits,
@@ -314,6 +311,7 @@ protected:
     void printGranules(std::ostream& out, const granuleMap& gmap) const;
     void convertGranules(granuleMap& gmap);
 
+    /// Read a file containing a list of floating-point numbers.
     void readBinBoundaries(const char* name, uint32_t nb);
     /// Partition the range based on the (approximate) histogram of the data
     void scanAndPartition(const char*, unsigned, uint32_t nbins=0);
@@ -1274,9 +1272,9 @@ public:
     /// minimum and maximum value encountered.
     struct grain {
 	double minm, maxm, minp, maxp;
-	ibis::bitvector* locm; ///!< Values less than the target.
-	ibis::bitvector* loce; ///!< Values exactly equal to the target.
-	ibis::bitvector* locp; ///!< Values greater than the target.
+	ibis::bitvector* locm; ///< Values less than the target.
+	ibis::bitvector* loce; ///< Values exactly equal to the target.
+	ibis::bitvector* locp; ///< Values greater than the target.
 
 	// the default construct, user to explicitly allocated the bitvector
 	grain() : minm(DBL_MAX), maxm(-DBL_MAX), minp(DBL_MAX), maxp(-DBL_MAX),

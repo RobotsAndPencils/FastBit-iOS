@@ -55,9 +55,6 @@ public:
 	return -1;}
 
     virtual void print(std::ostream& out) const;
-    virtual int write(ibis::array_t<double> &,
-                      ibis::array_t<int64_t> &,
-                      ibis::array_t<uint32_t> &) const;
     virtual int write(const char* name) const;
     virtual int read(const char* name);
     virtual int read(ibis::fileManager::storage* st);

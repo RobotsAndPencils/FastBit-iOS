@@ -27,16 +27,16 @@ namespace ibis {
 	UNKNOWN_TYPE=0,
 	/// A special eight-byte ID type for internal use.
 	OID,
-	BYTE,	///!< One-byte signed integers, internally char.
-	UBYTE,	///!< One-byte unsigned integers, internally unsigned char.
-	SHORT,	///!< Two-byte signed integers, internally int16_t.
-	USHORT, ///!< Two-byte unsigned integers, internally uint16_t.
-	INT,	///!< Four-byte signed integers, internally int32_t.
-	UINT,	///!< Four-byte unsigned integers, internally uint32_t.
-	LONG,	///!< Eight-byte signed integers, internally int64_t.
-	ULONG,	///!< Eight-byte unsigned integers, internally uint64_t.
-	FLOAT,	///!< Four-byte IEEE floating-point numbers, internally float.
-	DOUBLE, ///!< Eight-byte IEEE floating-point numbers, internally double.
+	BYTE,	///< One-byte signed integers, internally char.
+	UBYTE,	///< One-byte unsigned integers, internally unsigned char.
+	SHORT,	///< Two-byte signed integers, internally int16_t.
+	USHORT, ///< Two-byte unsigned integers, internally uint16_t.
+	INT,	///< Four-byte signed integers, internally int32_t.
+	UINT,	///< Four-byte unsigned integers, internally uint32_t.
+	LONG,	///< Eight-byte signed integers, internally int64_t.
+	ULONG,	///< Eight-byte unsigned integers, internally uint64_t.
+	FLOAT,	///< Four-byte IEEE floating-point numbers, internally float.
+	DOUBLE, ///< Eight-byte IEEE floating-point numbers, internally double.
 	/// Low cardinality null-terminated strings.  Strings are
 	/// internally stored with the null terminators.  Each string value
 	/// is intended to be treated as a single atomic item.
@@ -122,8 +122,8 @@ public:
     /// An associative array of names and types.
     typedef std::map<const char*, ibis::TYPE_T, ibis::lessi> namesTypes;
 
-    virtual stringList columnNames() const =0; ///!< Return column names.
-    virtual typeList columnTypes() const =0; ///!< Return data types.
+    virtual stringList columnNames() const =0; ///< Return column names.
+    virtual typeList columnTypes() const =0; ///< Return data types.
 
     /// Print a description of the table to the specified output stream.
     virtual void describe(std::ostream&) const =0;
@@ -211,16 +211,6 @@ public:
     /// subdirecories when possible.  Therefore it may find an arbitrary
     /// number of data partitions.
     virtual int addPartition(const char*) {return -1;}
-    /// Remove the named data partition from this data table.  The incoming
-    /// argument is expected to the name of the data partition.
-    ///
-    /// @note If it is not a name of any data partition, we check if it is
-    /// the name of the data directory.  In the process of matching
-    /// directory names, we will match the leading port of the directory
-    /// name only.  This allows the data partitions added through a single
-    /// call of addPartition to be dropped with a single call to this
-    /// function using the same arguement.
-    virtual int dropPartition(const char*) {return -1;}
     /// Retrieve the list of partitions.
     virtual int getPartitions(ibis::constPartList&) const {
 	return -1;}
@@ -393,31 +383,31 @@ public:
 
     /// A simple struct for storing a row of a table.
     struct row {
-	std::vector<std::string>   bytesnames; ///!< For ibis::BYTE.
+	std::vector<std::string>   bytesnames; ///< For ibis::BYTE.
 	std::vector<signed char>   bytesvalues;
-	std::vector<std::string>   ubytesnames; ///!< For ibis::UBYTE.
+	std::vector<std::string>   ubytesnames; ///< For ibis::UBYTE.
 	std::vector<unsigned char> ubytesvalues;
-	std::vector<std::string>   shortsnames; ///!< For ibis::SHORT.
+	std::vector<std::string>   shortsnames; ///< For ibis::SHORT.
 	std::vector<int16_t>       shortsvalues;
-	std::vector<std::string>   ushortsnames; ///!< For ibis::USHORT.
+	std::vector<std::string>   ushortsnames; ///< For ibis::USHORT.
 	std::vector<uint16_t>      ushortsvalues;
-	std::vector<std::string>   intsnames; ///!< For ibis::INT.
+	std::vector<std::string>   intsnames; ///< For ibis::INT.
 	std::vector<int32_t>       intsvalues;
-	std::vector<std::string>   uintsnames; ///!< For ibis::UINT.
+	std::vector<std::string>   uintsnames; ///< For ibis::UINT.
 	std::vector<uint32_t>      uintsvalues;
-	std::vector<std::string>   longsnames; ///!< For ibis::LONG.
+	std::vector<std::string>   longsnames; ///< For ibis::LONG.
 	std::vector<int64_t>       longsvalues;
-	std::vector<std::string>   ulongsnames; ///!< For ibis::ULONG.
+	std::vector<std::string>   ulongsnames; ///< For ibis::ULONG.
 	std::vector<uint64_t>      ulongsvalues;
-	std::vector<std::string>   floatsnames; ///!< For ibis::FLOAT.
+	std::vector<std::string>   floatsnames; ///< For ibis::FLOAT.
 	std::vector<float>         floatsvalues;
-	std::vector<std::string>   doublesnames; ///!< For ibis::DOUBLE.
+	std::vector<std::string>   doublesnames; ///< For ibis::DOUBLE.
 	std::vector<double>        doublesvalues;
-	std::vector<std::string>   catsnames; ///!< For ibis::CATEGORY.
+	std::vector<std::string>   catsnames; ///< For ibis::CATEGORY.
 	std::vector<std::string>   catsvalues;
-	std::vector<std::string>   textsnames; ///!< For ibis::TEXT.
+	std::vector<std::string>   textsnames; ///< For ibis::TEXT.
 	std::vector<std::string>   textsvalues;
-	std::vector<std::string>   blobsnames; ///!< For ibis::BLOB
+	std::vector<std::string>   blobsnames; ///< For ibis::BLOB
 	std::vector<ibis::opaque>  blobsvalues;
 
 	/// Clear all names and values.
@@ -449,8 +439,8 @@ public:
 
 protected:
 
-    std::string name_;	///!< Name of the table.
-    std::string desc_;	///!< Description of the table.
+    std::string name_;	///< Name of the table.
+    std::string desc_;	///< Description of the table.
 
     /// The default constructor.
     table() {};
@@ -558,9 +548,9 @@ public:
     virtual int appendRows(const std::vector<ibis::table::row>&) =0;
 
     /// Read the content of the named file as comma-separated values.
-    /// Append the records to this table.  If the argument memrows is
+    /// Append the records to this table.  If the argument maxrows is
     /// greater than 0, this function will reserve space to read this many
-    /// records.  If the total number of records is more than memrows and
+    /// records.  If the total number of records is more than maxrows and
     /// the output directory name is specified, then the records will be
     /// written the outputdir and the memory is made available for later
     /// records.  If outputdir is not specified, this function attempts to
@@ -590,14 +580,14 @@ public:
     /// is likely that you are have problem with the end-of-line character.
     /// Please try to convert the end-of-line character and give it another
     /// try.
-    virtual int readCSV(const char* inputfile, int memrows=0,
+    virtual int readCSV(const char* inputfile, int maxrows=0,
 			const char* outputdir=0, const char* delimiters=0) =0;
     /// Read a SQL dump from database systems such as MySQL.  The entire
-    /// file will be read into memory in one shot unless both memrows and
-    /// outputdir are specified.  In cases where both memrows and outputdir
-    /// are specified, this function reads a maximum of memrows before
+    /// file will be read into memory in one shot unless both maxrows and
+    /// outputdir are specified.  In cases where both maxrows and outputdir
+    /// are specified, this function reads a maximum of maxrows before
     /// write the data to outputdir under the name tname, which leaves no
-    /// more than memrows number of rows in memory.  The value returned
+    /// more than maxrows number of rows in memory.  The value returned
     /// from this function is the number of rows processed including those
     /// written to disk.  Use function mRows to determine how many are
     /// still in memory.
@@ -606,7 +596,7 @@ public:
     /// existing metadata is overwritten.  Otherwise, it reads insert
     /// statements and convert the ASCII data into binary format in memory.
     virtual int readSQLDump(const char* inputfile, std::string& tname,
-			    int memrows=0, const char* outputdir=0) =0;
+			    int maxrows=0, const char* outputdir=0) =0;
 
     /// Read a file containing the names and types of columns.
     virtual int readNamesAndTypes(const char* filename);
@@ -650,9 +640,6 @@ public:
     /// on a simple regular k-dimensional mesh of size nd1 x ... x ndk.
     /// Internally, these name-value pairs associated with a data table is
     /// known as meta tags or simply tags.
-    ///
-    /// Return the number of rows written to the specified directory on
-    /// successful completion.
     virtual int write(const char* dir, const char* tname=0,
 		      const char* tdesc=0, const char* idx=0,
 		      const char* nvpairs=0) const =0;
@@ -689,7 +676,7 @@ public:
     /// this function is not required, and the user is not required to call
     /// this function.
     virtual int32_t reserveSpace(uint32_t) {return 0;}
-    /// Capacity of the memory buffer.  Report the maximum number of rows
+    /// Capacity of the memory cache.  Report the maximum number of rows
     /// can be stored with this object before more memory will be
     /// allocated.  A return value of zero (0) may also indicate that it
     /// does not know about its capacity.
@@ -698,10 +685,9 @@ public:
     /// allocating space required for the actual string values.  Thus it is
     /// possible to run out of memory before the number of rows reported by
     /// mRows reaches the value returned by this function.
-    virtual uint32_t bufferCapacity() const {return 0;}
+    virtual uint32_t capacity() const {return 0;}
 
-    /// The number of rows in memory.  It is the maximum number of rows in
-    /// any column.
+    /// The maximum number of rows in any column.
     virtual uint32_t mRows() const =0;
     /// The number of columns in this table.
     virtual uint32_t mColumns() const =0;
@@ -715,20 +701,8 @@ public:
     /// object.
     virtual table* toTable(const char* nm=0, const char* de=0) =0;
 
-    /// Set the recommended data partition size.
-    virtual void setPartitionMax(uint32_t m) {maxpart=m;}
-    /// Get the recommended data partition size.
-    virtual uint32_t getPartitionMax() const {return maxpart;}
-
 protected:
-    /// Protected default constructor.  Derived classes need a default
-    /// constructor.
-    tablex() : maxpart(0), ipart(0) {};
-
-    /// Recommended size of data partitions to be created.
-    uint32_t maxpart;
-    /// Current partition number being used for writing.
-    mutable uint32_t ipart;
+    tablex() {}; // Derived classes need this.
 
 private:
     tablex(const tablex&); // no copying

@@ -7,8 +7,14 @@
 /// Defines minor utility functions and common classes used by
 /// FastBit.
 ///
-#include "const.h"
+#if defined(_WIN32) && defined(_MSC_VER) && defined(_DEBUG)
+#define _CRTDBG_MAP_ALLOC
 #include <stdlib.h>
+#include <crtdbg.h>
+#else
+#include <stdlib.h>
+#endif
+#include "const.h"
 
 #include <cctype>	// std::isspace
 #include <cstring>	// std::strcpy
@@ -325,22 +331,22 @@ namespace std { // extend namespace std slightly
 namespace ibis {
     /// @defgroup FastBitIBIS FastBit IBIS implementation core objects.
     /// @{
-    class resource;	///!< To store configuration parameters.
-    class bitvector;	///!< To store one bit sequence/bitmap.
-    class column;	///!< One column/attribute of a table.
-    class fileManager;	///!< A simple file manager.
-    class horometer;	///!< A timer class.
-    class index;	///!< The base class of indices.
-    class roster;	///!< A projection of a column in ascending order.
-    class bitvector64;	///!< The 64-bit version of bitvector class.
+    class resource;	///< To store configuration parameters.
+    class bitvector;	///< To store one bit sequence/bitmap.
+    class column;	///< One column/attribute of a table.
+    class fileManager;	///< A simple file manager.
+    class horometer;	///< A timer class.
+    class index;	///< The base class of indices.
+    class roster;	///< A projection of a column in ascending order.
+    class bitvector64;	///< The 64-bit version of bitvector class.
 
-    class dictionary;	///!< Map strings to integers and back.
-    class bundle;	///!< To organize in-memory data for group-by.
-    class colValues;	///!< To store a column of in-memory data.
+    class dictionary;	///< Map strings to integers and back.
+    class bundle;	///< To organize in-memory data for group-by.
+    class colValues;	///< To store a column of in-memory data.
 
-    class fromClause;	///!< From clause.
-    class whereClause;	///!< Where clause.
-    class selectClause;	///!< Select clause.
+    class fromClause;	///< From clause.
+    class whereClause;	///< Where clause.
+    class selectClause;	///< Select clause.
     /// @}
 
     /// A global list of data partitions.
@@ -875,9 +881,9 @@ namespace ibis {
 #if defined(HAVE_GCC_ATOMIC32)
 #elif defined(HAVE_WIN_ATOMIC32)
 #else
-	    mutable pthread_mutex_t lock_; ///!< The mutex lock.
+	    mutable pthread_mutex_t lock_; ///< The mutex lock.
 #endif
-	    volatile uint32_t count_; ///!< The counter value.
+	    volatile uint32_t count_; ///< The counter value.
 
 	    /// Copy constructor.  Decleared but not implemented.
 	    counter(const counter&);
@@ -1094,7 +1100,7 @@ namespace ibis {
 	    sharedInt64& operator=(const sharedInt64&); // no assignment
 	}; // sharedInt64
 
-	/// Print simple timing information.  It starts the clock in the
+	/// Print simply timing information.  It starts the clock in the
 	/// constructor, stops the clock in the destructor, and reports the
 	/// CPU time and elapsed time in between.  Typically one would
 	/// declare an object of this class in a block of code, and let the
@@ -1108,8 +1114,8 @@ namespace ibis {
 	    ~timer();
 
 	private:
-	    ibis::horometer *chrono_; ///!< The actual timer object.
-	    std::string mesg_; ///!< Holds a private copy of the message.
+	    ibis::horometer *chrono_; ///< The actual timer object.
+	    std::string mesg_; ///< Holds a private copy of the message.
 
 	    timer(); // no default constructor
 	    timer(const timer&); // no copying
@@ -1145,7 +1151,7 @@ namespace ibis {
 
 	    /// Destructor.  No need to be virtual.
 	    ~guardBase() {};
-	    guardBase() : done_(false) {}; ///!< Default constructor.
+	    guardBase() : done_(false) {}; ///< Default constructor.
 	    /// Copy constructor.  Allows all derived classes to use the
 	    /// compiler generated copy constructors.
 	    guardBase(const guardBase& rhs) : done_(rhs.done_) {
@@ -1316,8 +1322,8 @@ namespace ibis {
 	    guardObj0(C& o, F f) : obj_(o), fun_(f) {}
 
 	private:
-	    C& obj_; ///!< A reference to the class object.
-	    F fun_;  ///!< A pointer to the member function.
+	    C& obj_; ///< A reference to the class object.
+	    F fun_;  ///< A pointer to the member function.
 
 	    guardObj0();
 	    guardObj0& operator=(const guardObj0&);

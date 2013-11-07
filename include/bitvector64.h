@@ -53,7 +53,7 @@ Encoding format
 */
 class ibis::bitvector64 {
 public:
-    typedef uint64_t word_t;///!< The basic unit of data storage is 64-bit.
+    typedef uint64_t word_t;///< The basic unit of data storage is 64-bit.
 
     // constructors of bitvector64 class
     bitvector64() : nbits(0), nset(0), active(), m_vec() {};
@@ -61,9 +61,9 @@ public:
     bitvector64(const bitvector64& bv) : nbits(bv.nbits), nset(bv.nset),
 	active(bv.active), m_vec(bv.m_vec) {};
     bitvector64(const array_t<word_t>& arr);
-    bitvector64(const char* file); ///!< Read the content of the named file.
-    inline bitvector64& operator=(const bitvector64& bv); ///!<@note Deep copy.
-    inline bitvector64& copy(const bitvector64& bv);      ///!<@note Deep copy.
+    bitvector64(const char* file); ///< Read the content of the named file.
+    inline bitvector64& operator=(const bitvector64& bv); ///<@note Deep copy.
+    inline bitvector64& copy(const bitvector64& bv);      ///<@note Deep copy.
     inline bitvector64& swap(bitvector64& bv);
     // use bv to replace part of the existing value, match the ith bit with
     // the first of bv, return reference to self
@@ -71,7 +71,6 @@ public:
     /// Replace a single bit at position @c i.
     ///@note @c val must be either 0 or 1.
     void setBit(const word_t i, int val);
-    int  getBit(const word_t i) const;
     /// Remove the bits in the range of [i, j).
     void erase(word_t i, word_t j);
 
@@ -81,9 +80,9 @@ public:
     /// Remove the existing content of a bitvector64.
     void clear() {nbits = 0; nset = 0; active.reset(); m_vec.clear();}
 
-    bitvector64& operator+=(const bitvector64& bv); ///!< Append a bitvector64.
-    inline bitvector64& operator+=(int b);	///!< Append a single bit.
-    void appendWord(word_t w);			///!< Append a WAH word.
+    bitvector64& operator+=(const bitvector64& bv); ///< Append a bitvector64.
+    inline bitvector64& operator+=(int b);	///< Append a single bit.
+    void appendWord(word_t w);			///< Append a WAH word.
     /// Append @c n bits of @c val.
     inline void appendFill(int val, word_t n);
 
@@ -120,8 +119,8 @@ public:
     /// Write the bit vector to an array_t<word_t>.
     void write(array_t<word_t>& arr) const;
 
-    void compress();	///!< Merge fills into fill words.
-    void decompress();	///!< Turn all fill words into literal words.
+    void compress();	///< Merge fills into fill words.
+    void decompress();	///< Turn all fill words into literal words.
     /// Return the number of word saved if the function compress is called.
     word_t compressible() const;
     /// Does this bit vector use less space than the maximum? Return true
@@ -167,7 +166,7 @@ public:
     /// so that there are @c nt total bits.  The final result always
     /// contains @c nt bits.
     void adjustSize(word_t nv, word_t nt);
-    std::ostream& print(std::ostream &) const; ///!< The print function
+    std::ostream& print(std::ostream &) const; ///< The print function
 
     /// Iterator that supports modification of individual bit.
     class iterator;
@@ -228,7 +227,7 @@ private:
 	word_t nWords;
 	array_t<word_t>::const_iterator it;
 	run() : isFill(0), fillBit(0), nWords(0), it(0) {};
-	void decode() { ///!< Decode the word pointed by @c it.
+	void decode() { ///< Decode the word pointed by @c it.
 	    fillBit = (*it > HEADER1);
 	    if (*it > ALLONES) {
 		nWords = (*it & MAXCNT);
@@ -263,10 +262,10 @@ private:
     friend struct active_word;
 
     // member variables of bitvector64 class
-    word_t nbits;	///!< Number of bits in @c m_vec.
-    mutable word_t nset;///!< Number of bits that are 1 in @c m_vec.
-    active_word active;	///!< The active word.
-    array_t<word_t> m_vec;	///!< Store whole words.
+    word_t nbits;	///< Number of bits in @c m_vec.
+    mutable word_t nset;///< Number of bits that are 1 in @c m_vec.
+    active_word active;	///< The active word.
+    array_t<word_t> m_vec;	///< Store whole words.
 
     // private functions of bitvector64 class
     // The following three functions all performs or operation, _c2 and _c1
@@ -547,8 +546,8 @@ inline void ibis::bitvector64::append_active() {
     nset = 0;
 } // void ibis::bitvector64::append_active()
 
-/// Append a counter.  A private function to append a single counter when
-/// the active word is empty cnt is greater than 0.
+// a private function to append a single counter when the active word is
+// empty cnt is assumed to be multiples of MAXBITS (more than MAXBITS)
 inline void ibis::bitvector64::append_counter(int val, word_t cnt) {
     word_t head = 2 + val;
     word_t w = (head << SECONDBIT) + cnt;
@@ -568,17 +567,17 @@ inline void ibis::bitvector64::append_counter(int val, word_t cnt) {
     else {
 	m_vec.push_back(w);
     }
-} // ibis::bitvector64::append_counter
+} // void append_counter()
 
-/// Append a single bit
+// append a single bit
 inline ibis::bitvector64& ibis::bitvector64::operator+=(int b) {
     active.append(b);
     if (active.is_full()) append_active();
     return *this;
 } // ibis::bitvector64& ibis::bitvector64::operator+=(int b)
 
-/// Append n bits of val.  The value of n may be arbitrary integer, but the
-/// value of val must be either 0 or 1.
+// append n bits of val (n may be arbitrary integer, value must be either 0
+// or 1)
 inline void ibis::bitvector64::appendFill(int val,
 					  ibis::bitvector64::word_t n) {
     if (active.nbits > 0) {
@@ -609,22 +608,15 @@ inline void ibis::bitvector64::appendFill(int val,
 	active.nbits = n;
 	active.val = val*((static_cast<word_t>(1)<<n)-1);
     }
-} // ibis::bitvector64::appendFill
+} // ibis::bitvector64::appendFill(val, n)
 
 // append nw words starting from 'it' to the current bit vector -- assume
 // active is empty
 inline void ibis::bitvector64::copy_runs(run& it, word_t& nw) {
     // deal with the first word -- need to attach it to the last word in m_vec
     if (it.isFill) {
-        if (it.nWords > 1) {
-            append_counter(it.fillBit, it.nWords);
-            nw -= it.nWords;
-        }
-        else if (it.nWords == 1) {
-            active.val = (it.fillBit != 0 ? ALLONES : 0);
-            append_active();
-            -- nw;
-        }
+	append_counter(it.fillBit, it.nWords);
+	nw -= it.nWords;
     }
     else {
 	active.val = *(it.it);
@@ -650,15 +642,8 @@ inline void ibis::bitvector64::copy_runs(run& it, word_t& nw) {
 inline void ibis::bitvector64::copy_runsn(run& it, word_t& nw) {
     // deal with the first word -- need to attach it to the last word in m_vec
     if (it.isFill) {
-        if (it.nWords > 1) {
-            append_counter(!it.fillBit, it.nWords);
-            nw -= it.nWords;
-        }
-        else if (it.nWords == 1) {
-            active.val = (it.fillBit != 0 ? 0 : ALLONES);
-            append_active();
-            -- nw;
-        }
+	append_counter(!it.fillBit, it.nWords);
+	nw -= it.nWords;
     }
     else {
 	active.val = ALLONES ^ *(it.it);

@@ -61,7 +61,7 @@ Encoding format <http://lbl.gov/~kwu/ps/LBNL-49626.html>
 */
 class FASTBIT_CXX_DLLSPEC ibis::bitvector {
 public:
-    typedef uint32_t word_t;///!< The basic unit of data storage.
+    typedef uint32_t word_t;///< The basic unit of data storage.
 
     /// Destructor.
     ~bitvector() {clear();};
@@ -79,7 +79,6 @@ public:
     // the first of bv, return reference to self
     //bitvector& copy(const word_t i, const bitvector& bv);
     void setBit(const word_t i, int val);
-    int  getBit(const word_t i) const;
     inline void turnOnRawBit(const word_t i);
     void erase(word_t i, word_t j);
 
@@ -158,8 +157,8 @@ public:
     /// Is the bitvector empty?  For efficiency reasons, this funciton
     /// only works correctly on a properly compressed bitvector.
     bool empty() const {return all0s() && active.val == 0;}
-    /// The print function.
-    std::ostream& print(std::ostream &) const;
+
+    std::ostream& print(std::ostream &) const; ///< The print function
 
     /// Iterator that supports modification of individual bit.
     class iterator;
@@ -221,7 +220,7 @@ private:
 	word_t nWords;
 	array_t<word_t>::const_iterator it;
 	run() : isFill(0), fillBit(0), nWords(0), it(0) {};
-	void decode() { ///!< Decode the word pointed by @c it.
+	void decode() { ///< Decode the word pointed by @c it.
 	    fillBit = (*it > HEADER1);
 	    if (*it > ALLONES) {
 		nWords = (*it & MAXCNT);
@@ -256,10 +255,10 @@ private:
     friend struct active_word;
 
     // member variables of bitvector class
-    mutable word_t nbits;	///!< Number of bits in @c m_vec.
-    mutable word_t nset;	///!< Number of bits that are 1 in @c m_vec.
-    active_word active;		///!< The active word.
-    array_t<word_t> m_vec;	///!< Store whole words.
+    mutable word_t nbits;	///< Number of bits in @c m_vec.
+    mutable word_t nset;	///< Number of bits that are 1 in @c m_vec.
+    active_word active;		///< The active word.
+    array_t<word_t> m_vec;	///< Store whole words.
 
     // private functions of bitvector class
     word_t count_c1(const bitvector& mask) const;
@@ -710,25 +709,26 @@ inline void ibis::bitvector::append_active() {
 } // ibis::bitvector::append_active
 
 /// A private function to append a single counter when the active word is
-/// empty.  The value of @c cnt is assumed to be greater than 0.
+/// empty.  The value of @c cnt is assumed to be a multiple of MAXBITS and
+/// strictly larger than MAXBITS.
 inline void ibis::bitvector::append_counter(int val, word_t cnt) {
     word_t head = 2 + val;
     word_t w = (head << SECONDBIT) + cnt;
     nbits += cnt*MAXBITS;
     if (m_vec.empty()) {
-        m_vec.push_back(w);
+	m_vec.push_back(w);
     }
     else if ((m_vec.back()>>SECONDBIT) == head) {
-        m_vec.back() += cnt;
+	m_vec.back() += cnt;
     }
     else if ((m_vec.back()==ALLONES) && head==3) {
-        m_vec.back() = w + 1;
+	m_vec.back() = w + 1;
     }
     else if ((m_vec.back() == 0) && head==2) {
-        m_vec.back() = w + 1;
+	m_vec.back() = w + 1;
     }
     else {
-        m_vec.push_back(w);
+	m_vec.push_back(w);
     }
 } // ibis::bitvector::append_counter
 
@@ -785,15 +785,8 @@ inline void ibis::bitvector::appendFill(int val, word_t n) {
 inline void ibis::bitvector::copy_runs(run& it, word_t& nw) {
     // deal with the first word -- attach it to the last word in m_vec
     if (it.isFill != 0) {
-        if (it.nWords > 1) {
-            append_counter(it.fillBit, it.nWords);
-            nw -= it.nWords;
-        }
-        else if (it.nWords == 1) {
-            active.val = (it.fillBit != 0 ? ALLONES : 0);
-            append_active();
-            -- nw;
-        }
+	append_counter(it.fillBit, it.nWords);
+	nw -= it.nWords;
     }
     else {
 	active.val = *(it.it);
@@ -801,8 +794,8 @@ inline void ibis::bitvector::copy_runs(run& it, word_t& nw) {
 	-- nw;
     }
     ++ it.it;
-    nset = 0;
     it.nWords = 0;
+    nset = 0;
     nbits += MAXBITS * nw;
 
     while (nw > 0) { // copy the words
@@ -820,20 +813,13 @@ inline void ibis::bitvector::copy_runs(run& it, word_t& nw) {
     nbits -= MAXBITS * nw;
 } // ibis::bitvector::copy_runs
 
-/// Copy the complements of a set of consecutive runs.  It assumes
-/// active to be empty.
+/// Copy the complements of a set of consecutive runs.  It assumes that
+/// active is empty.
 inline void ibis::bitvector::copy_runsn(run& it, word_t& nw) {
     // deal with the first word -- need to attach it to the last word in m_vec
     if (it.isFill != 0) {
-        if (it.nWords > 1) {
-            append_counter(!it.fillBit, it.nWords);
-            nw -= it.nWords;
-        }
-        else if (it.nWords == 1) {
-            active.val = (it.fillBit != 0 ? 0 : ALLONES);
-            append_active();
-            -- nw;
-        }
+	append_counter(!it.fillBit, it.nWords);
+	nw -= it.nWords;
     }
     else {
 	active.val = ALLONES ^ *(it.it);
@@ -841,8 +827,8 @@ inline void ibis::bitvector::copy_runsn(run& it, word_t& nw) {
 	-- nw;
     }
     ++ it.it; // advance to the next word
-    nset = 0;
     it.nWords = 0;
+    nset = 0;
     nbits += MAXBITS * nw;
 
     while (nw > 0) { // copy the words
@@ -1017,7 +1003,7 @@ inline ibis::bitvector::const_iterator ibis::bitvector::begin() const {
     return it;
 } // ibis::bitvector::begin
 
-/// Dereference the current bit.  No error checking.
+// dereference -- no error checking
 inline bool ibis::bitvector::iterator::operator*() const {
 #if defined(DEBUG) && DEBUG + 0 > 1
     if (vec==0 || it<vec->begin() ||  it>vec->end())
@@ -1029,29 +1015,25 @@ inline bool ibis::bitvector::iterator::operator*() const {
 	return (1 & (literalvalue >> (bitvector::SECONDBIT - ind)));
 } // ibis::bitvector::iterator::operator*
 
-/// Comparing two iterators.  It only compare the content of the iterator
-/// to m_vec.
+// comparison only based on the iterator
 inline int ibis::bitvector::iterator::operator!=
 (const ibis::bitvector::const_iterator& rhs) const throw () {
     return (it != rhs.it);
 }
-
 inline int ibis::bitvector::iterator::operator==
 (const ibis::bitvector::const_iterator& rhs) const throw () {
     return (it == rhs.it);
 }
-
 inline int ibis::bitvector::iterator::operator!=
 (const ibis::bitvector::iterator& rhs) const throw () {
     return (it != rhs.it);
 }
-
 inline int ibis::bitvector::iterator::operator==
 (const ibis::bitvector::iterator& rhs) const throw () {
     return (it == rhs.it);
 }
 
-/// Increment the interator.  Move on to the next bit.
+// increment by one
 inline ibis::bitvector::iterator& ibis::bitvector::iterator::operator++() {
 #if defined(DEBUG) && DEBUG + 0 > 1
     if (vec==0 || it<vec->begin() || it>vec->end())
@@ -1062,7 +1044,7 @@ inline ibis::bitvector::iterator& ibis::bitvector::iterator::operator++() {
     return *this;
 }
 
-/// Decrement the interator.  Move back by one bit.
+// decrement by one
 inline ibis::bitvector::iterator& ibis::bitvector::iterator::operator--() {
 #if defined(DEBUG) && DEBUG + 0 > 1
     if (vec==0 || it<vec->begin() || it>vec->end()+1)
@@ -1091,9 +1073,9 @@ inline ibis::bitvector::const_iterator ibis::bitvector::end() const {
     it.end   = m_vec.end();
     it.active = &active;
     return it;
-} // ibis::bitvector::end
+} // ibis::bitvector::end()
 
-/// Dereference the current bit value.  No error checking.
+// dereference -- no error checking
 inline bool ibis::bitvector::const_iterator::operator*() const {
 #if defined(DEBUG) && DEBUG + 0 > 1
     if (it==0 || end==0 || it>end || nbits<=ind)
@@ -1105,8 +1087,7 @@ inline bool ibis::bitvector::const_iterator::operator*() const {
 	return (1 & (literalvalue >> (bitvector::SECONDBIT - ind)));
 }
 
-/// Comparing two iterators.  It actually only check the value of the
-/// iterator pointing to m_vec.
+// comparison only based on the iterator
 inline int ibis::bitvector::const_iterator::operator!=
 (const ibis::bitvector::const_iterator& rhs) const throw (){
     return (it != rhs.it);
@@ -1116,7 +1097,7 @@ inline int ibis::bitvector::const_iterator::operator==
     return (it == rhs.it);
 }
 
-/// Increment the iterator.  Move on to the next bit.
+// increment by one
 inline ibis::bitvector::const_iterator&
 ibis::bitvector::const_iterator::operator++() {
 #if defined(DEBUG) && DEBUG + 0 > 1
@@ -1128,7 +1109,7 @@ ibis::bitvector::const_iterator::operator++() {
     return *this;
 }
 
-/// Decrement the iterator.  Move back one bit.
+// decrement by one
 inline ibis::bitvector::const_iterator&
 ibis::bitvector::const_iterator::operator--() {
 #if defined(DEBUG) && DEBUG + 0 > 1
@@ -1201,9 +1182,6 @@ inline double ibis::bitvector::markovSize(word_t nb, word_t nc, double f) {
 } // ibis::bitvector::markovSize
 
 /// Turn on a single bit in a uncompressed bitvector.
-///
-/// @warning Use only if you are sure that the bitvector object represents
-/// a uncompressed bitmap!
 inline void ibis::bitvector::turnOnRawBit(const word_t ind) {
     if (ind < nbits) { // in regular words
 	m_vec[ind / MAXBITS] |= (1 << (SECONDBIT - (ind % MAXBITS)));

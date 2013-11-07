@@ -50,7 +50,7 @@ public:
     /// indicate error.
     virtual int64_t count() const = 0;
 
-    /// Produce a projection of the joint table.  The select clause
+    /// Produce a projection of the joined table.  The select clause
     /// associated with the query object is evaluated.  If no select clause
     /// is provided, it returns a table with no columns.  This is different
     /// from having a 'count(*)' as the select clause, which produce a
@@ -59,22 +59,23 @@ public:
     /// @note We assume that this query object might be reused later and
     /// therefore store partial results associated with the query object.
     virtual table* select() const = 0;
-    /// Produce a project based on the given select clause.  The joint
+    /// Produce a project based on the given select clause.  The joined
     /// data table is defined by the where clause and the from clause given
     /// to the constructor of this object.
     virtual table* select(const char*) const = 0;
-    /// Produce a projection of all known data partitions.  This function
-    /// selects all values of the named columns that are not NULL.
+    /// Produce a projection of the joined table.  This function selects
+    /// values using the column names provided instead of the select clause
+    /// specified when the query is constructed.
     ///
-    /// @note This function assumes that this query object is used only
-    /// once and therefore does not cache the results.
+    /// @note This function assumes that the select clause is used only
+    /// once and therefore avoids caching the results.
     virtual ibis::table* 
 	select(const ibis::table::stringList& colnames) const = 0;
 
     virtual ~quaere() {};
 
 protected:
-    quaere() {} //!< Default constructor.  Only used by derived classes.
+    quaere() {} //< Default constructor.  Only used by derived classes.
 
 private:
     quaere(const quaere&); // no copying

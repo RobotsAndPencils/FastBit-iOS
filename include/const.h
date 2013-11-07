@@ -66,13 +66,6 @@
 
 //
 // common headers needed
-#if defined(_WIN32) && defined(_MSC_VER) && defined(_DEBUG)
-// Enable memory debugging on windows environments
-#  define _CRTDBG_MAP_ALLOC
-#  include <stdlib.h>
-#  include <crtdbg.h>
-#endif
-
 #include <errno.h>	// errno
 #include <string.h>	// strerr, strcasecmp, strcmp, memcpy
 #include <pthread.h>	// mutex lock, rwlock, conditional variables
@@ -199,6 +192,9 @@
 #  include <direct.h>	// _mkdir
 #  define mkdir(x,y) _mkdir(x)
 #  define chmod _chmod
+#  if defined(_DEBUG)
+#    include <crtdbg.h>
+#  endif
 
 #  if defined(__MINGW__) || defined(__MINGW32__) || defined(__MINGW64__)
 #    include <stdint.h>
@@ -348,9 +344,9 @@ int pthread_rwlock_unlock(pthread_rwlock_t *rwlock);
 namespace ibis { // forward definition of all the classes in IBIS
     /// @defgroup FastBitMain FastBit IBIS main interface objects.
     /// @{
-    class part;		///!< To store information about a data partition.
-    class query;	///!< To store information about a query.
-    class qExpr;	///!< The base class of query expressions.
+    class part;		///< To store information about a data partition.
+    class query;	///< To store information about a query.
+    class qExpr;	///< The base class of query expressions.
     /// @}
 
     template<class T> class array_t;
@@ -361,11 +357,11 @@ namespace ibis { // forward definition of all the classes in IBIS
 
     /// The object identifiers used to distinguish records.
     union FASTBIT_CXX_DLLSPEC rid_t {
-	uint64_t value;	///!< As a single 64-bit value.
+	uint64_t value;	///< As a single 64-bit value.
 	/// As two 32-bit values.
 	struct name {
-	    uint32_t run;	///!< Run number.  More significant.
-	    uint32_t event;	///!< Event number.  Less significant.
+	    uint32_t run;	///< Run number.  More significant.
+	    uint32_t event;	///< Event number.  Less significant.
 	} num;
 
 	// (num.run < r.num.run) |

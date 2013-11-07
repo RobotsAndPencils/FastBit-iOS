@@ -8,7 +8,7 @@
 #define FASTBIT_FLOAT_NULL std::numeric_limits<float>::quiet_NaN()
 
 /* Define an integer version of FastBit IBIS version number */
-#define FASTBIT_IBIS_INT_VERSION 1030802
+#define FASTBIT_IBIS_INT_VERSION 1030503
 
 /* Define to 1 if you have the <dirent.h> header file, and it defines `DIR'.
    */
@@ -105,7 +105,7 @@
 #define FASTBIT_NAME "FastBit"
 
 /* Define to the full name and version of this package. */
-#define FASTBIT_STRING "FastBit ibis1.3.8.2"
+#define FASTBIT_STRING "FastBit ibis1.3.5.3"
 
 /* Define to the one symbol short name of this package. */
 #define FASTBIT_TARNAME "fastbit"
@@ -114,7 +114,9 @@
 #define FASTBIT_URL "http://sdm.lbl.gov/fastbit/"
 
 /* Define to the version of this package. */
-#define FASTBIT_VERSION "ibis1.3.8.2"
+#define FASTBIT_VERSION "ibis1.3.5.3"
 
 /* Define to 1 if you have the ANSI C header files. */
 #define STDC_HEADERS 1
+#undef HAVE_GCC_ATOMIC32
+#undef HAVE_GCC_ATOMIC64

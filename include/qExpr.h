@@ -13,20 +13,19 @@
 #include "array_t.h"
 
 namespace ibis { // additional names related to qExpr
-    class qRange;	///!< A simple range defined on a single attribute.
-    class qContinuousRange;///!< A range defined with one or two boundaries.
-    class qDiscreteRange;	///!< A range defined with discrete values.
-    class qString;	///!< An equality expression with a string literal.
-    class qAnyString;	///!< A range condition involving multiple strings.
-    class qKeyword;	///!< A keyword search
-    class qAllWords;	///!< A range condition involving multiple strings.
-    class compRange;	///!< A comparisons involving arithmetic expression.
-    class deprecatedJoin;	///!< A deprecated range join operations.
-    class qAnyAny;	///!< A special form of any-match-any query.
-    class qLike;	///!< A representation of the operator LIKE.
-    class qIntHod;	///!< A container of signed integers.
-    class qUIntHod;	///!< A container of unsigned integers.
-    class qExists;	///!< A test for existence of a name.
+    class qRange;	///< A simple range defined on a single attribute.
+    class qContinuousRange;///< A range defined with one or two boundaries.
+    class qDiscreteRange;	///< A range defined with discrete values.
+    class qString;	///< An equality expression with a string literal.
+    class qAnyString;	///< A range condition involving multiple strings.
+    class qKeyword;	///< A keyword search
+    class qAllWords;	///< A range condition involving multiple strings.
+    class compRange;	///< A comparisons involving arithmetic expression.
+    class deprecatedJoin;	///< A deprecated range join operations.
+    class qAnyAny;	///< A special form of any-match-any query.
+    class qLike;	///< A representation of the operator LIKE.
+    class qIntHod;	///< A container of signed integers.
+    class qUIntHod;	///< A container of unsigned integers.
 }
 
 /// @ingroup FastBitIBIS
@@ -40,8 +39,7 @@ public:
     enum TYPE {
 	LOGICAL_UNDEFINED, LOGICAL_NOT, LOGICAL_AND, LOGICAL_OR, LOGICAL_XOR,
 	LOGICAL_MINUS, RANGE, DRANGE, STRING, ANYSTRING, KEYWORD, ALLWORDS,
-	COMPRANGE, MATHTERM, DEPRECATEDJOIN, TOPK, EXISTS, ANYANY, LIKE,
-        INTHOD, UINTHOD
+	COMPRANGE, MATHTERM, DEPRECATEDJOIN, TOPK, ANYANY, LIKE, INTHOD, UINTHOD
     };
     /// Comparison operator supported in RANGE.
     enum COMPARE {
@@ -123,7 +121,7 @@ public:
 	virtual double operator()(const qExpr* ex) const = 0;
 	virtual ~weight() {};
     };
-    double reorder(const weight&); ///!< Reorder the expressions tree.
+    double reorder(const weight&); ///< Reorder the expressions tree.
     /// Duplicate this query expression.  Return the pointer to the new object.
     virtual qExpr* dup() const {
 	qExpr* res = new qExpr(type);
@@ -143,7 +141,7 @@ public:
     bool directEval() const
     {return (type==RANGE || type==STRING || type==COMPRANGE ||
 	     type==DRANGE || type==ANYSTRING || type==ANYANY ||
-	     type==INTHOD || type==UINTHOD || type==EXISTS ||
+	     type==INTHOD || type==UINTHOD ||
 	     (type==LOGICAL_NOT && left && left->directEval()));}
 
     /// Is the expression simple? A simple expression contains only range
@@ -373,8 +371,8 @@ public:
     virtual void printFull(std::ostream& out) const {print(out);}
 
 private:
-    std::string name; ///!< Column name.
-    ibis::array_t<double> values; ///!< Values are sorted in ascending order.
+    std::string name; ///< Column name.
+    ibis::array_t<double> values; ///< Values are sorted in ascending order.
 
     qDiscreteRange& operator=(const qDiscreteRange&);
 }; // ibis::qDiscreteRange
@@ -526,32 +524,6 @@ private:
     qString& operator=(const qString&);
 }; // ibis::qString
 
-/// This data structure holds a single name.  Note that the name in this
-/// function is not checked against the list of the known variables.
-/// Furthermore, when this expression appears as the left side of binary
-/// operator, the names on the right-hand side of the expression is not
-/// checked either.
-class FASTBIT_CXX_DLLSPEC ibis::qExists : public ibis::qExpr {
-public:
-    qExists() : qExpr(EXISTS) {};
-    qExists(const char *col) : qExpr(EXISTS), name(col) {};
-    virtual ~qExists() {}; // name is automatically destroyed
-
-    /// Duplicate the object.
-    virtual qExists* dup() const {return new qExists(name.c_str());}
-    virtual void print(std::ostream& out) const;
-    virtual void printFull(std::ostream& out) const;
-    virtual bool isSimple() const {
-        return true;
-    }
-
-    /// Return the column name.
-    const char* colName() const {return name.c_str();}
-
-private:
-    std::string name;
-}; // ibis::qExists
-
 /// The column contains one of the values in a list.  A data structure to
 /// hold the string-valued version of the IN expression, name IN ('aaa',
 /// 'bbb', ...).
@@ -559,7 +531,7 @@ class FASTBIT_CXX_DLLSPEC ibis::qAnyString : public ibis::qExpr {
 public:
     qAnyString() : qExpr(ANYSTRING) {};
     qAnyString(const char *col, const char *sval);
-    virtual ~qAnyString() {}; // name and values are automatically destroyed
+    virtual ~qAnyString() {}; // name and values automatically destroyed
 
     /// Duplicate the object.  Using the compiler generated copy constructor.
     virtual qAnyString* dup() const {return new qAnyString(*this);}
@@ -704,9 +676,9 @@ namespace ibis {
 	extern const char* stdfun2_name[];
 	/// Whether to keep arithmetic expression as user inputed them.
 	/// - If it is true, FastBit will not consolidate constant
-	///   expressions nor perform other simple optimizations.
+	/// expressions nor perform other simple optimizations.
 	/// - If it is false, the software will attempt to minimize the
-	///   number of operations needed to apply them on data records.
+	/// number of operations needed to apply them on data records.
 	///
 	/// @note Keep the arithmetic expressions unaltered will preserve
 	/// its round-off properties and produce exactly the same numeric
@@ -769,7 +741,7 @@ namespace ibis {
 
 	    void recordVariable(const qExpr* const t);
 	    void recordVariable(const term* const t);
-	    uint32_t recordVariable(const char* name);
+	    inline uint32_t recordVariable(const char* name);
 	    /// Is the given @c barrel of variables equivalent to this one?
 	    bool equivalent(const barrel& rhs) const;
 
@@ -1120,8 +1092,8 @@ public:
     virtual void getTableNames(std::set<std::string>& plist) const;
 
 private:
-    std::string prefix; ///!< The prefix of the column names to search.
-    ibis::array_t<double> values; ///!< The list of values to match.
+    std::string prefix; ///< The prefix of the column names to search.
+    ibis::array_t<double> values; ///< The list of values to match.
 }; // class ibis::qAnyAny
 
 inline void ibis::qContinuousRange::foldBoundaries() {
@@ -1476,6 +1448,23 @@ inline bool ibis::qUIntHod::inRange(uint64_t val) const {
 	return (values[m] == val);
     }
 } // ibis::qUIntHod::inRange
+
+/// Record the specified name.  Return the number that is to be used later
+/// in functions @c name and @c value for retrieving the variable name and
+/// its value.
+inline uint32_t ibis::math::barrel::recordVariable(const char* name) {
+    uint32_t ind = varmap.size();
+    termMap::const_iterator it = varmap.find(name);
+    if (it == varmap.end()) {
+	varmap[name] = ind;
+	namelist.push_back(name);
+	varvalues.push_back(0.0);
+    }
+    else {
+	ind = (*it).second;
+    }
+    return ind;
+} // ibis::math::barrel::recordVariable
 
 namespace std {
     inline ostream& operator<<(ostream&, const ibis::qExpr&);

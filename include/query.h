@@ -19,13 +19,18 @@
 ///
 /// It contains a list of range conditions joined together with logical
 /// operators, such as "temperature > 700 and 100 <= presessure < 350".
-/// Records whose values satisfy the conditions defined in the
+/// Records whose attribute values satisfy the conditions defined in the
 /// where clause is considered hits.  A query may retrieve values of
 /// variables/columns specified in the select clause.  A select clause is
 /// optional.  If specified, it contains a list of column names.  These
-/// columns must not be NULL in order for a record to be a hit.  If any
-/// additional functions are needed in the select clause, use the function
-/// ibis::table::select instead of using this class.
+/// attributes must not be NULL in order for a record to be a hit.  The
+/// select clause may also contain column names appearing as the argument
+/// to one of the four aggregation functions: @c avg, @c var, @c max, @c
+/// min and @c sum.  For example, "temperature, pressure,
+/// average(ho2_concentration)" may be a select statement for a Chemistry
+/// application.  Note that If one needs to include arithmetic expressions in
+/// the select clause, use the function ibis::table::select instead of
+/// using this class.
 ///
 /// The hits can be computed in two ways by using functions @c estimate or
 /// @c evaluate.  The function @c estimate can take advantage of the
@@ -40,7 +45,7 @@
 /// recorded as a bit vector.  The user may use ibis::bitvector::indexSet
 /// to extract the record numbers of the hits or use one of the functions
 /// @c getQualifiedInts, @c getQualifiedFloats, and @c getQualifiedDoubles
-/// to retrieve the values of the selected columns.  Additionally, one
+/// to retrieve the values of the selected attributes.  Additionally, one
 /// may call either @c printSelected or @c printSelectedWithRID to print
 /// the selected values to the specified I/O stream.
 ///
@@ -48,15 +53,15 @@
 class FASTBIT_CXX_DLLSPEC ibis::query {
 public:
     enum QUERY_STATE {
-	UNINITIALIZED,	//!< The query object is currently empty.
-	SET_COMPONENTS,	//!< The query object has a select clause.
-	SET_RIDS,	//!< The query object contains a list of RIDs.
-	SET_PREDICATE,	//!< The query object has a where clause.
-	SPECIFIED,	//!< SET_COMPONENTS & (SET_RIDS | SET_PREDICATE).
-	QUICK_ESTIMATE, //!< A upper and a lower bound are computed.
-	FULL_EVALUATE,	//!< The exact hits are computed.
-	BUNDLES_TRUNCATED,	//!< Only top-K results are stored.
-	HITS_TRUNCATED	//!< The hit vector has been updated to match bundles.
+	UNINITIALIZED,	//< The query object is currently empty.
+	SET_COMPONENTS,	//< The query object has a select clause.
+	SET_RIDS,	//< The query object contains a list of RIDs.
+	SET_PREDICATE,	//< The query object has a where clause.
+	SPECIFIED,	//< SET_COMPONENTS & (SET_RIDS | SET_PREDICATE).
+	QUICK_ESTIMATE, //< A upper and a lower bound are computed.
+	FULL_EVALUATE,	//< The exact hits are computed.
+	BUNDLES_TRUNCATED,	//< Only top-K results are stored.
+	HITS_TRUNCATED	//< The hit vector has been updated to match bundles.
     };
 
     virtual ~query();
@@ -106,10 +111,6 @@ public:
     int estimate();
     long getMinNumHits() const;
     long getMaxNumHits() const;
-    /// Return a pointer to the bit vector representing the candidates.
-    const ibis::bitvector* getCandidateVector() const
-    {return (sup!=0?sup:hits);}
-    long getCandidateRows(std::vector<uint32_t>&) const;
 
     // Functions related to full evaluation.
 
@@ -225,14 +226,14 @@ public:
     friend class writeLock;
 
 protected:
-    char* user; 	///!< Name of the user who specified the query
-    whereClause conds;	///!< Query conditions
-    selectClause comps;	///!< Select clause
-    QUERY_STATE state;	///!< Status of the query
-    ibis::bitvector* hits;///!< Solution in bitvector form (or lower bound)
-    ibis::bitvector* sup;///!< Estimated upper bound
-    mutable ibis::part::readLock* dslock;	///!< A read lock on the mypart
-    mutable char lastError[MAX_LINE+PATH_MAX];	///!< The warning/error message
+    char* user; 	///< Name of the user who specified the query
+    whereClause conds;	///< Query conditions
+    selectClause comps;	///< Select clause
+    QUERY_STATE state;	///< Status of the query
+    ibis::bitvector* hits;///< Solution in bitvector form (or lower bound)
+    ibis::bitvector* sup;///< Estimated upper bound
+    mutable ibis::part::readLock* dslock;	///< A read lock on the mypart
+    mutable char lastError[MAX_LINE+PATH_MAX];	///< The warning/error message
 
     void logError(const char* event, const char* fmt, ...) const;
     void logWarning(const char* event, const char* fmt, ...) const;
@@ -244,7 +245,7 @@ protected:
     void doEstimate(const qExpr* term, ibis::bitvector& low,
 		    ibis::bitvector& high) const;
 
-    int computeHits();
+    int  computeHits();
     int doEvaluate(const qExpr* term, ibis::bitvector& hits) const;
     int doEvaluate(const qExpr* term, const ibis::bitvector& mask,
 		   ibis::bitvector& hits) const;
@@ -348,7 +349,7 @@ private:
     mutable pthread_rwlock_t lock; // Rwlock for access control
 
     // private functions
-    static char* newToken(const char*); ///!< Generate a new unique token.
+    static char* newToken(const char*); ///< Generate a new unique token.
     /// Determine a directory for storing information about the query.
     void setMyDir(const char *pref);
 
