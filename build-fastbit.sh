@@ -44,11 +44,18 @@ done
  
 DEVICE_OUTPUT=${OUTPUT}/${CONFIGURATION}-${DEVICE}
 SIMULATOR_OUTPUT=${OUTPUT}/${CONFIGURATION}-${SIMULATOR}
-UNIVERSAL_OUTPUT="lib"
+UNIVERSAL_OUTPUT=${OUTPUT}
+LIB_OUTPUT="lib"
  
-rm -rf "${UNIVERSAL_OUTPUT}"
-mkdir -p "${UNIVERSAL_OUTPUT}"
+rm -rf "${LIB_OUTPUT}"
+mkdir -p "${LIB_OUTPUT}"
+
 lipo -create -output "${UNIVERSAL_OUTPUT}/${LIBRARY_NAME}" "${DEVICE_OUTPUT}/${LIBRARY_NAME}" "${SIMULATOR_OUTPUT}/${LIBRARY_NAME}"
+
+for arch in "armv7" "arm64" "i386" "x86_64"
+do
+  lipo -thin $arch -output "${LIB_OUTPUT}/lib${TARGET_NAME}-${arch}.a" "${UNIVERSAL_OUTPUT}/${LIBRARY_NAME}"
+done
  
 rm -rf "${HEADERS_DIR}"
 mkdir -p "${HEADERS_DIR}"
